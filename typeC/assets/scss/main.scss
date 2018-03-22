@@ -1,0 +1,11 @@
+@import "mixin";
+.main{width:100vw;height:100vh;overflow: hidden;}
+.sub{display:none;}
+.main-list{/*@include transform-transition-out(0.5);*/
+  li{width:100vw;height:100vh;}
+  .list-1{background-color: cornflowerblue;}
+  .list-2{background-color: aquamarine;}
+  .list-3{background-color: deeppink;}
+  .list-4{background-color: cadetblue}
+  .list-5{background-color: lightpink;}
+}
