@@ -24,18 +24,20 @@ var swipeUtil = (function($){
 
         var addEvent = function(){
 
-            touchTarget.on('touchstart',function(e){
+            touchTarget.bind('touchstart',function(e){
                 var event = e.originalEvent;
-                event.preventDefault();
+
                 isTouch = true;
                 sx = event.touches[0].clientX;
                 sy = event.touches[0].clientY;
                 // console.log('touchstart');
+
+                event.preventDefault();
             });
 
-            touchTarget.on('touchmove',function(e){
+            touchTarget.bind('touchmove',function(e){
                 var event = e.originalEvent;
-                event.preventDefault();
+
 
                 if(isTouch){
                     dx = event.touches[0].clientX - sx + ox;
@@ -44,10 +46,13 @@ var swipeUtil = (function($){
 
                     movePosition(dx,dy);
                 }
+
+                event.preventDefault();
             });
 
-            touchTarget.on('touchend',function(e){
-                e.preventDefault();
+            touchTarget.bind('touchend',function(e){
+                var event = e.originalEvent;
+
                 if(isTouch){
                     // console.log('touchend');
 
@@ -76,6 +81,7 @@ var swipeUtil = (function($){
                         goToSlide();
                     }
                 }
+                event.preventDefault();
             });
         };
         var movePosition = function(dx,dy){
@@ -124,12 +130,13 @@ var swipeUtil = (function($){
             var percent;
             switch(mode){
                 case 'horizontal' :
-                    percent = Math.abs(dx /(moveTarget.width()-$(window).width()))*100;
+                    percent = Math.abs(dx /moveTarget.width()*(totalNum-1))*100;
                     break;
                 case 'vertical' :
-                    percent = Math.abs(dy / (moveTarget.height()-$(window).height()))*100;
+                    percent = Math.abs(dy / moveTarget.height()*(totalNum-1))*100;
                     break;
             }
+            console.log("dd",percent)
             percent = percent ? percent : 0;
             return percent;
         }

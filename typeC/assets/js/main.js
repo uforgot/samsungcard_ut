@@ -1,14 +1,28 @@
 
 var main = (function($) {
-    var rq,swiper,totalNum,stepNum,stepPercent;
-    var checkPercent = function(){
-        rq = window.requestAFrame(checkPercent);
+    var rq,swiper,totalNum,stepNum,stepPercent,winW,winH,scrollTop,scrollBottom;
+    var animate = function(){
+        rq = window.requestAFrame(animate);
         //console.log(swiper.getPercent());
         var percent = swiper.getPercent();
         stepNum = Math.round(percent/stepPercent);
         console.log(stepNum,percent)
 
     }
+
+    var addEvent = function(){
+        $(window).on('resize',onResize);
+
+
+        onResize();
+    }
+
+    var onResize = function(e){
+        winW = $(window).width();
+        winH = $(window).height();
+    }
+
+
 
     /*================================================================================================================*/
     var _init = function(){
@@ -17,16 +31,18 @@ var main = (function($) {
     };
     var _load_init = function(){
 
-        totalNum = $('.main-list li').length;
+        totalNum = $('section').length;
         stepPercent = 100/(totalNum-1);
-        console.log("................",totalNum,stepPercent);
+        // console.log("................",totalNum,stepPercent);
 
-      swiper = swipeUtil({
-          moveTarget : $('.main-list'),
-          mode : 'vertical'
-      });
+        swiper = swipeUtil({
+            touchTarget : $('.wrap'),
+            moveTarget : $('.contents'),
+            mode : 'vertical'
+        });
 
-      checkPercent();
+        animate();
+        addEvent();
     };
 
     return{
