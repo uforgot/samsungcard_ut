@@ -4,7 +4,8 @@ var swipeUtil = (function($){
         touchTarget : $('body'),
         moveTarget : $('body'),
         mode : 'horizontal',
-        swipeThreshold: 100
+        swipeThreshold: 100,
+        contentsNumber : 5
     }
 
     var swipeUtil = function(spec){
@@ -17,9 +18,9 @@ var swipeUtil = (function($){
         var moveTarget = that.settings.moveTarget;
         var mode = that.settings.mode;
         var swipeThreshold = that.settings.swipeThreshold;
-        var totalNum = moveTarget.children().length;
-        var moveHeight = moveTarget.height()/totalNum;
-        var moveWidth = moveTarget.width()/totalNum;
+        var totalNum = that.settings.contentsNumber ? that.settings.contentsNumber : moveTarget.children().length;
+        var moveHeight = moveTarget.height();
+        var moveWidth = moveTarget.width();
         var curNum = 0;
 
         var addEvent = function(){
@@ -104,7 +105,7 @@ var swipeUtil = (function($){
                     y = -moveHeight*curNum;
                     break;
             }
-
+            console.log(moveHeight)
             moveTarget.animate({transform : 'translate('+ x +'px,'+ y +'px)'},{duration:400,
                 step : function(now,fx) {
 
@@ -136,7 +137,7 @@ var swipeUtil = (function($){
                     percent = Math.abs(dy / moveTarget.height()/(totalNum-1))*100;
                     break;
             }
-            console.log("dd",percent)
+            //console.log("dd",percent)
             percent = percent ? percent : 0;
             return percent;
         }

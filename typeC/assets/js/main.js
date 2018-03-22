@@ -6,7 +6,7 @@ var main = (function($) {
         //console.log(swiper.getPercent());
         var percent = swiper.getPercent();
         stepNum = Math.round(percent/stepPercent);
-        console.log(stepNum,percent)
+        //console.log(stepNum,percent)
 
     }
 
@@ -38,7 +38,8 @@ var main = (function($) {
         swiper = swipeUtil({
             touchTarget : $('.wrap'),
             moveTarget : $('.contents'),
-            mode : 'vertical'
+            mode : 'vertical',
+            contentsNumber : 5
         });
 
         animate();
