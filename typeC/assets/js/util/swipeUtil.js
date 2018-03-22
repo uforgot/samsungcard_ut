@@ -130,10 +130,10 @@ var swipeUtil = (function($){
             var percent;
             switch(mode){
                 case 'horizontal' :
-                    percent = Math.abs(dx /moveTarget.width()*(totalNum-1))*100;
+                    percent = Math.abs(dx /moveTarget.width()/(totalNum-1))*100;
                     break;
                 case 'vertical' :
-                    percent = Math.abs(dy / moveTarget.height()*(totalNum-1))*100;
+                    percent = Math.abs(dy / moveTarget.height()/(totalNum-1))*100;
                     break;
             }
             console.log("dd",percent)

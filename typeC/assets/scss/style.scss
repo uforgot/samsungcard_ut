@@ -26,6 +26,8 @@ td { margin: 0px; padding: 0px; font-size: 100%; color: #777777; }
 
 th { font-weight: normal; }
 
+*,*:before,*:after{box-sizing:border-box;}
+
 /* h */
 strong, b { font-weight: normal; }
 
@@ -40,7 +42,6 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tf
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block;}
-body {line-height:1.7em;}
 ol, ul {list-style:none;}
 blockquote, q {quotes:none;}
 blockquote:before, blockquote:after, q:before, q:after {content:''; content:none;}
@@ -50,7 +51,6 @@ th, td {word-wrap:break-word;}
 img {font-size:0; vertical-align:top;}
 fieldset,img {border:0 none;}
 fieldset {float:none;}
-body, select, input, button, textarea, table {color:#444; font-size:14px; font-family:'KBFGText', 'dotum','돋움', sans-serif; letter-spacing:-0.05em; font-weight:300}
 a {text-decoration:none; color:#444;}
 address,cite,code,dfn,em,var {font-style:normal; font-weight:normal;}
 caption, legend, hr {overflow:hidden !important; width:1px !important; height:1px !important; margin:-1px !important; position:absolute !important; clip:rect(0 0 0 0) !important; border:0 !important; padding:0 !important;}
