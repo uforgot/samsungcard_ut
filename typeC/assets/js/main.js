@@ -1,18 +1,24 @@
-
+const TOTALNUM = 5;
 var main = (function($) {
-    var rq,swiper,totalNum,stepNum,stepPercent,winW,winH,scrollTop,scrollBottom;
+
+    var rq,swiper,stepNum,stepPercent,winW,winH,scrollTop,scrollBottom;
     var animate = function(){
-        rq = window.requestAFrame(animate);
+        //rq = window.requestAFrame(animate);
         //console.log(swiper.getPercent());
         var percent = swiper.getPercent();
-        stepNum = Math.round(percent/stepPercent);
-        //console.log(stepNum,percent)
+        percent = percent < 0 ? 0 : percent;
+        percent = percent.toFixed(2);
+        stepNum = Math.floor(percent/stepPercent);
 
+        step.motion(percent,stepNum);
+
+        var num = Math.round(percent/stepPercent);
+        $('.indi-con-list li').removeClass('active');
+        $('.indi-con-list li').eq(num).addClass('active');
     }
 
     var addEvent = function(){
         $(window).on('resize',onResize);
-
 
         onResize();
     }
@@ -30,20 +36,21 @@ var main = (function($) {
 
     };
     var _load_init = function(){
-
-        totalNum = $('section').length;
-        stepPercent = 100/(totalNum-1);
+        stepPercent = 100/(TOTALNUM-1);
         // console.log("................",totalNum,stepPercent);
 
         swiper = swipeUtil({
-            touchTarget : $('.wrap'),
+           /* touchTarget : $('.wrap'),*/
             moveTarget : $('.contents'),
             mode : 'vertical',
-            contentsNumber : 5
+            contentsNumber : TOTALNUM,
+            freeze : true,
+            checkPercent : animate
         });
-
         animate();
         addEvent();
+
+        //swiper.goToSlide(1);
     };
 
     return{
