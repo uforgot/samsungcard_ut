@@ -27,6 +27,40 @@ var main = (function($) {
         $(window).on('resize',onResize);
 
         onResize();
+
+        $('.txt-con-list .btn').on('click',function(e){
+            e.preventDefault();
+
+            var index = $(this).parent().index();
+            popup.setSection(index);
+
+            $('.popup-con').css('display','block');
+
+            setTimeout(function(){
+                $('.popup-con').addClass('onShow');
+                $('.popup .menu-wrap').addClass('onShow');
+                },100);
+            $('body,html').css('overflow','initial');
+
+
+
+            $('.popup-con .close-holder a').on('click',function(e){
+                e.preventDefault();
+
+                $('body,html').css('overflow','hidden');
+
+                $('.popup-con .close-holder a').off('click');
+                popup.setSection(0);
+
+                $('.popup-con').removeClass('onShow');
+                $('.popup .menu-wrap').removeClass('onShow');
+
+                setTimeout(function(){
+                    $('.popup-con').css('display','none');
+                },500);
+            })
+        })
+
     }
 
     var onResize = function(e){
@@ -35,10 +69,12 @@ var main = (function($) {
     }
 
 
-
+    var subLoadComplete = function(){
+        popup.init();
+        popup.load_init();
+    }
     /*================================================================================================================*/
     var _init = function(){
-
 
     };
     var _load_init = function(){
@@ -46,7 +82,7 @@ var main = (function($) {
         // console.log("................",totalNum,stepPercent);
 
         swiper = swipeUtil({
-           /* touchTarget : $('.wrap'),*/
+            touchTarget : $('.container'),
             moveTarget : $('.contents'),
             mode : 'vertical',
             contentsNumber : TOTALNUM,
@@ -55,6 +91,8 @@ var main = (function($) {
         });
         animate();
         addEvent();
+
+        $('.popup-con').load('popup.html .popup',subLoadComplete);
 
         //swiper.goToSlide(1);
     };

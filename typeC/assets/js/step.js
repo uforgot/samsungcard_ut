@@ -75,7 +75,7 @@ var step = (function($){
                 motion4(per);
                 break
         }
-        console.log(num);
+        // console.log(num);
 
     }
 
