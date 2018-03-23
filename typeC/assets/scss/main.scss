@@ -34,34 +34,85 @@ section{width:100%;height:100% }
 }
 .circle-con-list{ position: absolute;width: 449/$w*100vw;height:449/$w*100vw; top: 12%;overflow: hidden;
   @include left-center(449);@include borderRadius('',50%);@include  opacity(0);
-
+  li{position:absolute;width:100%;top:0;left:0;
+    .circle{width:100%;@include opacity(0);@include css-transition(opacity,0.5);
+      &.onShow{@include opacity(1);}
+    }
+  }
   .circle-1{
-    .circle{width:100%}
-    .glass{position: absolute; width:percentage(190/449); top: 47%;left: 79%;}
-    .camera{position: absolute;top: 73%;left: 57%;width:percentage(177/449);}
-    .bag{position: absolute;top: 40%;left: -4%;width:percentage(137/449);}
-    .flight{position: absolute;top: 9%;left: -18%;width:percentage(612/449);}
+    .circle{@include opacity(1); }
+    .glass{position: absolute; width:percentage(190/449); top: 47%;left: 79%; visibility:hidden;@include transform(translate(200%,0) rotate(-300deg));@include transform-transition-in(0.3);}
+    .camera{position: absolute;top: 73%;left: 57%;width:percentage(177/449);visibility:hidden;@include transform(translate(50%,50%) rotate(-90deg));@include transform-transition-in(0.3);}
+    .bag{position: absolute;top: 40%;left: -4%;width:percentage(137/449);visibility:hidden;@include transform(translate(-200%,0) rotate(150deg));@include transform-transition-in(0.3);}
+    .flight{position: absolute;top: 9%;left: -18%;width:percentage(612/449);visibility:hidden;@include transform(translate(0,100%) rotate(0deg));@include transform-transition-in(0.3);}
 
     &.onShow{
+      .glass{@include transform-transition-out(0.6,0.1);@include transform(translate(0,0) rotate(0deg));visibility:visible;}
+      .camera{@include transform-transition-out(0.4,0.4);@include transform(translate(0,0) rotate(0deg));position: absolute;top: 73%;left: 57%;width:percentage(177/449);visibility:visible;}
+      .bag{@include transform-transition-out(0.5,0.3);@include transform(translate(0,0) rotate(0deg));position: absolute;top: 40%;left: -4%;width:percentage(137/449);visibility:visible;}
+      .flight{@include transform-transition-out(0.6);@include transform(translate(0,0) rotate(0deg));position: absolute;top: 9%;left: -18%;width:percentage(612/449);visibility:visible;}
+    }
+    &.onHide{
+      .glass{@include transform-transition-in(0.3);@include transform(translate(200%,0) rotate(-300deg));visibility:visible;}
+      .camera{@include transform-transition-in(0.3);@include transform(translate(50%,50%) rotate(-90deg));visibility:visible;}
+      .bag{@include transform-transition-in(0.3);@include transform(translate(-200%,0) rotate(150deg));visibility:visible;}
+      .flight{@include transform-transition-in(0.2);@include transform(translate(0,-100%) rotate(0deg));visibility:visible;}
+    }
+    .circle-2{
+      &.onShow{
 
+      }
     }
   }
 }
 .sub-con-list{ position: absolute;width:100%; height:449/$w*100vw; top:9%;overflow: hidden;
+  li{position:absolute;width:100%;height:100%;top:0;left:0;}
   .sub-1{
-    .cloud-1{position: absolute;width:percentage(222/$w); top:0%;left:20%;@include opacity(0);}
-    .cloud-2{position: absolute;width:percentage(236/$w); top:21%;left:65%;@include opacity(0);}
-    .cloud-3{position: absolute;width:percentage(220/$w); top:70%;left:9%;@include opacity(0);}
+    .cloud-1{position: absolute;width:percentage(222/$w); top:0%;left:20%;@include transform(translate(0,100%));@include opacity(0);visibility:visible;@include transform-css-transition('0.3s 0s ease-out, opacity 0.3s 0s');}
+    .cloud-2{position: absolute;width:percentage(236/$w); top:21%;left:65%;@include transform(translate(0,100%));@include opacity(0);visibility:visible;@include transform-css-transition('0.3s 0.1s ease-out, opacity 0.3s 0.1s');}
+    .cloud-3{position: absolute;width:percentage(220/$w); top:70%;left:9%;@include transform(translate(0,100%));@include opacity(0);visibility:visible;@include transform-css-transition('0.3s 0.2s ease-out, opacity 0.3s 0.2s');}
+
+    &.onShow{
+      .cloud-1{@include transform-css-transition('0.65s 0s ease-out, opacity 0.65s 0s');@include transform(translate(0,0));@include opacity(1);visibility:visible;}
+      .cloud-2{@include transform-css-transition('0.55s 0.15s ease-out, opacity 0.55s 0.15s');@include transform(translate(0,0));@include opacity(1);visibility:visible;}
+      .cloud-3{@include transform-css-transition('0.45s 0.3s ease-out, opacity 0.45s 0.3s');@include transform(translate(0,0));@include opacity(1);visibility:visible;}
+    }
+    &.onHide{
+      .cloud-1{@include transform-css-transition('0.3s 0s ease-out, opacity 0.3s 0s');@include transform(translate(0,-100%));@include opacity(0);visibility:visible;}
+      .cloud-2{@include transform-css-transition('0.3s 0.1s ease-out, opacity 0.3s 0.1s');@include transform(translate(0,-100%));@include opacity(0);visibility:visible;}
+      .cloud-3{@include transform-css-transition('0.3s 0.2s ease-out, opacity 0.3s 0.2s');@include transform(translate(0,-100%));@include opacity(0);visibility:visible;}
+    }
   }
 }
 
 .txt-con-list{position: absolute;width:100%;top: 67.5%;@include  opacity(0);
+  li{position:absolute;width:100%;top:0;left:0;
+    .icon{@include transform(translate(0,200%));@include opacity(0);@include transform-css-transition('0.3s 0.1s ease-in-out , opacity 0.2s 0.1s');}
+    .title{@include transform(translate(0,50%));@include opacity(0);@include transform-css-transition('0.3s 0.5s ease-in-out , opacity 0.3s 0.05s');}
+    .btn{@include transform(translate(0,100%));@include opacity(0);@include transform-css-transition('0.3s 0s ease-in-out , opacity 0.3s');}
+
+    &.onShow{
+      .icon{@include transform-css-transition('0.4s ease-out , opacity 0.3s');@include transform(translate(0,0));@include opacity(1);}
+      .title{@include transform-css-transition('0.4s 0.1s ease-out , opacity 0.3s 0.1s');@include transform(translate(0,0));@include opacity(1);}
+      .btn{@include transform-css-transition('0.4s 0.2s ease-out , opacity 0.3s 0.2s');@include transform(translate(0,0));@include opacity(1);}
+    }
+
+    &.onHide{
+      .icon{@include transform-css-transition('0.3s 0.1s ease-in-out , opacity 0.2s 0.1s');@include transform(translate(0,-200%));@include opacity(0);}
+      .title{@include transform-css-transition('0.3s 0.5s ease-in-out , opacity 0.3s 0.05s');@include transform(translate(0,-100%));@include opacity(0);}
+      .btn{@include transform-css-transition('0.3s 0s ease-in-out , opacity 0.3s');@include transform(translate(0,-100%));@include opacity(0);}
+    }
+  }
   .txt-1{
     .icon{width:percentage(131/$w);@include margin-center(131);}
     .title{width:percentage(368/$w);@include margin-center(368); margin-top: 4%;}
     .btn{width:percentage(213/$w);@include margin-center(213); margin-top: 18%;}
   }
-
+  .txt-2{
+    .icon{width:percentage(156/$w);@include margin-center(156);}
+    .title{width:percentage(535/$w);@include margin-center(535); margin-top: 3%;}
+    .btn{width:percentage(271/$w);@include margin-center(271); margin-top: 9%;}
+  }
 }
 
 .indi-con-list{position:absolute;width:percentage(15 / $w);right:percentage(25/$w);top:39%;

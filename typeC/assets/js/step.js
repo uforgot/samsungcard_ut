@@ -3,11 +3,30 @@ var step = (function($){
         switch(num){
             case 0 :
                 motion0(per);
+                $('.circle-1').removeClass('onShow');
+                $('.sub-1').removeClass('onShow');
+                $('.txt-1').removeClass('onShow')
                 break;
             case 1 :
                 motion1(per);
+                $('.circle-1').removeClass('onHide').addClass('onShow');
+                $('.sub-1').removeClass('onHide').addClass('onShow');
+                $('.txt-1').removeClass('onHide').addClass('onShow');
+                $('.circle-2 .circle').removeClass('onShow');
+
+                $('.circle-2').removeClass('onShow');
+                $('.sub-2').removeClass('onShow');
+                $('.txt-2').removeClass('onShow');
                 break;
             case 2 :
+                $('.circle-1').removeClass('onShow').addClass('onHide');
+                $('.sub-1').removeClass('onShow').addClass('onHide');
+                $('.txt-1').removeClass('onShow').addClass('onHide');
+                $('.circle-2 .circle').addClass('onShow');
+
+                $('.circle-2').removeClass('onHide').addClass('onShow');
+                $('.sub-2').removeClass('onHide').addClass('onShow');
+                $('.txt-2').removeClass('onHide').addClass('onShow');
                 motion2(per);
                 break
             case 3 :
@@ -39,14 +58,14 @@ var step = (function($){
             $('.circle-con-list').css('opacity',0);
             $('.txt-con-list').css({'opacity' : 0});
 
-            $('.circle-1 .flight').css({'transform':'translate('+0+'%,'+100+'%)'});
+/*            $('.circle-1 .flight').css({'transform':'translate('+0+'%,'+100+'%)'});
             $('.circle-1 .bag').css({'transform':'translate('+ -200+'%,'+ -10+'%) rotate('+120+'deg)'});
             $('.circle-1 .camera').css({'transform':'translate('+ 50+'%,'+ 50+'%) rotate('+ -30+'deg)'});
             $('.circle-1 .glass').css({'transform':'translate('+ 200+'%,'+ -200+'%) rotate('+ -200+'deg)'});
 
             $('.sub-1 .cloud-1').css({'transform':'translateY('+ -50+'%)', 'opacity' : 0});
             $('.sub-1 .cloud-2').css({'transform':'translateY('+40+'%)', 'opacity' : 0});
-            $('.sub-1 .cloud-3').css({'transform':'translateY('+ -80+'%)', 'opacity' : 0});
+            $('.sub-1 .cloud-3').css({'transform':'translateY('+ -80+'%)', 'opacity' : 0});*/
 
             $('.shadow-1').css('opacity',0);
         }else{
@@ -55,14 +74,14 @@ var step = (function($){
             $('.circle-con-list').css({'transform':'translateY('+((pp1*-50)+50)+'%) scale('+(pp1*0.3 + 0.7)+')', 'opacity' : pp1});
             $('.txt-con-list').css({'transform':'translateY('+((pp1*-30)+30)+'%)', 'opacity' : pp1});
 
-            $('.circle-1 .flight').css({'transform':'translate('+0+'%,'+ (pp1*-100+100)+'%)'});
+           /* $('.circle-1 .flight').css({'transform':'translate('+0+'%,'+ (pp1*-100+100)+'%)'});
             $('.circle-1 .bag').css({'transform':'translate('+ (200*pp1-200)+'%,'+ (10*pp1-10)+'%) rotate('+(120-120*pp1)+'deg)'});
             $('.circle-1 .camera').css({'transform':'translate('+ (50-50*pp1)+'%,'+ (50-50*pp1)+'%) rotate('+ (-30+30*pp1)+'deg)'});
-            $('.circle-1 .glass').css({'transform':'translate('+ (200-200*pp1)+'%,'+ (-200+200*pp1)+'%) rotate('+ (-200+200*pp1)+'deg)'});
+            $('.circle-1 .glass').css({'transform':'translate('+ (200-200*pp1)+'%,'+ (-200+200*pp1)+'%) rotate('+ (-200+200*pp1)+'deg)'});*/
 
-            $('.shadow-1').css('opacity',pp1);
+           /* $('.shadow-1').css('opacity',pp1);*/
 
-            if(per>0.5) {
+            /*if(per>0.5) {
                 pp2 = linearTween(per-0.5,0,1,0.5);
                 $('.sub-1 .cloud-1').css({'transform':'translateX('+(-50+pp2*50)+'%)', 'opacity' : pp2});
             }
@@ -73,7 +92,7 @@ var step = (function($){
             if(per>0.7) {
                 pp4 = linearTween(per-0.7,0,1,0.3);
                 $('.sub-1 .cloud-3').css({'transform':'translateX('+(-80+pp4*80)+'%)', 'opacity' : pp4});
-            }
+            }*/
         }
         if(per>0) {
             p2 = easeInOutCubic(per,0,1,0.5);
