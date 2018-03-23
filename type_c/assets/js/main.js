@@ -63,6 +63,11 @@ var main = (function($) {
             })
         })
 
+        $('.hover').bind('touchstart touchend', function(e) {
+            e.preventDefault();
+            $(this).toggleClass('hover-effect');
+        });
+
     }
 
     var onResize = function(e){

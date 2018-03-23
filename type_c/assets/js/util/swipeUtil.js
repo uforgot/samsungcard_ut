@@ -29,18 +29,70 @@ var swipeUtil = (function($){
         var obj = {x:0,y:0};
         var isSkipSlide = false;
 
+
+        var onTouchStart = function($e) {
+            if(isTouchStart === true) return;
+            isTouchStart = true;
+
+            var touch = $e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+
+            sx = dx = touch.pageX;
+            sy = dy = touch.pageY;
+
+            $(window).on('touchmove' ,onTouchMove);
+            $(window).on('touchend' ,onTouchEnd);
+        }
+
+        var onTouchMove = function($e) {
+            var touch = $e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+            dx = event.touches[0].clientX - sx + ox;
+            dy = event.touches[0].clientY - sy + oy;
+            //console.log('touchmove',dx,dy);
+            movePosition(dx,dy);
+        }
+        var onTouchEnd = function($e) {
+            isTouchStart = false;
+
+            var distance;
+
+            switch(mode){
+                case 'horizontal' :
+                    distance = dx - ox;
+                    break;
+                case 'vertical' :
+                    distance = dy - oy;
+                    break;
+            }
+
+            if (Math.abs(distance) >= swipeThreshold) {
+                if (distance < 0) {
+                    that.goToNextSlide();
+                } else {
+                    that.goToPrevSlide();
+                }
+            } else {
+                that.goToSlide(curNum);
+            }
+
+            $(window).off('touchmove' ,onTouchMove);
+            $(window).off('touchend' ,onTouchEnd);
+        }
+
         that.addEvent = function(){
-
-            touchTarget.on('touchstart',function(e){
-                //e.preventDefault();
-                var event = e.originalEvent;
-                //event.preventDefault();
+            touchTarget.on('touchstart' ,onTouchStart);
+            /*touchTarget.on('touchstart',function(e) {
 
 
-                sx = dx = event.touches[0].clientX;
-                sy = dy = event.touches[0].clientY;
-                // console.log('touchstart');
+
+                if(isTouchStart === true) return;
                 isTouchStart = true;
+
+                var touch = $e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+
+                sx = dx = touch.pageX;
+                sy = dy = touch.pageY;
+                // console.log('touchstart');
+
             });
 
             touchTarget.on('touchmove',function(e){
@@ -89,11 +141,9 @@ var swipeUtil = (function($){
                     }
                 }
 
-            });
+            });*/
         };
         that.removeEvent = function(){
-          /*  sx = dx = ox = 0;
-            sy = dy = oy = 0;*/
 
             touchTarget.off('touchstart');
             touchTarget.off('touchmove');
