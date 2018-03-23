@@ -1,4 +1,4 @@
-const TOTALNUM = 5;
+const TOTALNUM = 2;
 var main = (function($) {
 
     var rq,swiper,stepNum,stepPercent,winW,winH,scrollTop,scrollBottom;

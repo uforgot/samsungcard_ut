@@ -34,7 +34,7 @@ var step = (function($){
         var pp1 = (per-0.5)/0.5;
         var pp2,pp3,pp4
         if(per < 0.5){
-            $('.card-con').css({'transform':'translateY('+p1*12+'%) scale('+(1-p1*0.3)+')', 'opacity' : 1-p1});
+            $('.card-con').css({'transform':'translateY('+p1*-30+'%) scale('+(1-p1*0.3)+')', 'opacity' : 1-p1});
 
             $('.circle-con-list').css('opacity',0);
             $('.txt-con-list').css({'opacity' : 0});
@@ -47,16 +47,20 @@ var step = (function($){
             $('.sub-1 .cloud-1').css({'transform':'translateY('+ -50+'%)', 'opacity' : 0});
             $('.sub-1 .cloud-2').css({'transform':'translateY('+40+'%)', 'opacity' : 0});
             $('.sub-1 .cloud-3').css({'transform':'translateY('+ -80+'%)', 'opacity' : 0});
+
+            $('.shadow-1').css('opacity',0);
         }else{
             $('.card-con').css('opacity',0);
 
-            $('.circle-con-list').css({'transform':'translateY('+((pp1*-20)+20)+'%) scale('+(pp1*0.3 + 0.7)+')', 'opacity' : pp1});
+            $('.circle-con-list').css({'transform':'translateY('+((pp1*-50)+50)+'%) scale('+(pp1*0.3 + 0.7)+')', 'opacity' : pp1});
             $('.txt-con-list').css({'transform':'translateY('+((pp1*-30)+30)+'%)', 'opacity' : pp1});
 
             $('.circle-1 .flight').css({'transform':'translate('+0+'%,'+ (pp1*-100+100)+'%)'});
             $('.circle-1 .bag').css({'transform':'translate('+ (200*pp1-200)+'%,'+ (10*pp1-10)+'%) rotate('+(120-120*pp1)+'deg)'});
             $('.circle-1 .camera').css({'transform':'translate('+ (50-50*pp1)+'%,'+ (50-50*pp1)+'%) rotate('+ (-30+30*pp1)+'deg)'});
             $('.circle-1 .glass').css({'transform':'translate('+ (200-200*pp1)+'%,'+ (-200+200*pp1)+'%) rotate('+ (-200+200*pp1)+'deg)'});
+
+            $('.shadow-1').css('opacity',pp1);
 
             if(per>0.5) {
                 pp2 = linearTween(per-0.5,0,1,0.5);
