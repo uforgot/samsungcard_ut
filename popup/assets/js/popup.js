@@ -27,7 +27,7 @@ var popup = (function($) {
             sectionElArray[3].offset().top
         ];
 
-        titleHeight = Math.floor(300 *ratio);
+        titleHeight = Math.floor(250 *ratio);
         menuHolderEl.css('height', titleHeight);
         onScroll();
     };
