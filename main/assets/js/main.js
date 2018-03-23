@@ -45,7 +45,15 @@ var main = (function($) {
     };
 
     var setSnap = function() {
-        var tmpIndex = Math.round(currentX / CARD_MARGIN) * -1;
+        console.log('ssss');
+        var diff = currentX - startX;
+        var tmpIndex;
+
+        if (diff>0) {
+            tmpIndex = Math.ceil(currentX / CARD_MARGIN) * -1;
+        } else {
+            tmpIndex = Math.floor(currentX / CARD_MARGIN) * -1;
+        }
 
         if (tmpIndex <0) {tmpIndex = 0;}
         if (tmpIndex > CARD_MAX-1) {tmpIndex = CARD_MAX-1;}
@@ -57,6 +65,9 @@ var main = (function($) {
         currentX = tmpX;
         cardContainer.css('transform', 'translateX('+tmpX +'px)');
         // cardContainer.css('left', tmpX);
+
+        $('.txt-focus').css('transform', 'translateY( ' + -34*$index + 'px)'  );
+
 
         setScale($index);
         setBg($index);
@@ -100,7 +111,7 @@ var main = (function($) {
 
     /*== touch ==*/
     var isTouchDrag = false;
-    var touchX, touchY;
+    var touchX, touchY, startX;
 
     var onTouchStart = function($e) {
 
@@ -113,6 +124,7 @@ var main = (function($) {
         var touch = $e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
         touchY = touch.pageY;
         touchX = touch.pageX;
+        startX = currentX;
 
         setScale(-1);
 
@@ -154,12 +166,17 @@ var main = (function($) {
         winH = $(window).height();
         ratio = winW / 720;
 
-        topBgHeight = Math.floor(438 * ratio);
-        topMenuHeight = Math.floor(80 * ratio);
+        topBgHeight = Math.round(438 * ratio);
+        topMenuHeight = Math.round(80 * ratio) + 2;
 
-        cardHolder.css('height', Math.floor(670*ratio) )
-        cardBox.css('top',Math.floor(437*ratio) );
+        $('.bg-holder').css('height', topMenuHeight);
+        $('.menu-wrap .bg-holder .bg img').css('height', topMenuHeight);
+
+        cardHolder.css('height', Math.round(670*ratio) );
+        cardBox.css('top',Math.round(437*ratio) );
         cardBox.css('transform', 'scale(' + ratio + ')');
+
+        $('.txt-focus-clip').css('transform','scale3d(' + ratio + ', ' + ratio + ', ' + ratio + ')');
 
         onScroll();
     };
@@ -184,9 +201,37 @@ var main = (function($) {
     };
 
     var _load_init = function(){
-        addEvent();
         setEl();
         setFocus(1);
+
+        onResize();
+
+        setTimeout(show1, 600);
+        setTimeout(show2, 900);
+        setTimeout(show3, 1200);
+        setTimeout(show4, 1200);
+    };
+
+    var show1 = function() {
+        $('.intro-bg').addClass('onShow');
+
+        $('.list-1').addClass('onShow');
+        $('.list-2').addClass('onShow');
+        $('.list-3').addClass('onShow');
+        $('.list-4').addClass('onShow');
+    };
+
+    var show2 = function() {
+        $('.cont-box-txt').addClass('onShow');
+    };
+
+    var show3 = function(){
+        $('.card-holder').addClass('onShow');
+    };
+
+    var show4 = function() {
+
+        addEvent();
     };
 
     return{
