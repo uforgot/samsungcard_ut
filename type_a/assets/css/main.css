@@ -1144,14 +1144,97 @@ body, html {
             top: 0;
             transform: translateX(-50%) translateY(-50%); }
           .card-holder .card-box .card-clip .card-pod .card-scale .card img {
-            width: 810px; }
+            width: 634px; }
+          .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask {
+            border: 1px solid #d9d9d9;
+            position: absolute;
+            top: 17px;
+            left: 12px;
+            width: 610px;
+            height: 1006px;
+            background: #fff;
+            border-radius: 23px;
+            overflow: hidden; }
+            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask img {
+              width: 100%; }
+            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .card-float {
+              position: absolute;
+              left: 50%;
+              top: 250px; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .card-float img {
+                width: 502px;
+                height: 370px;
+                margin-left: -251px;
+                margin-top: -185px; }
+            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .button {
+              position: absolute; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .button div {
+                position: absolute; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .button.hover .focus {
+                opacity: 0;
+                -webkit-transition: opacity 0.2s;
+                -moz-transition: opacity 0.2s;
+                -ms-transition: opacity 0.2s;
+                -o-transition: opacity 0.2s;
+                transition: opacity 0.2s; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .button.hover-effect .focus {
+                opacity: 1;
+                -webkit-transition: opacity 0.2s;
+                -moz-transition: opacity 0.2s;
+                -ms-transition: opacity 0.2s;
+                -o-transition: opacity 0.2s;
+                transition: opacity 0.2s; }
+            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .card-btn-1 {
+              width: 262px;
+              left: 176px;
+              top: 654px; }
+            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .card-btn-2 {
+              width: 271px;
+              left: 60px;
+              top: 704px; }
+            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .card-btn-3 {
+              width: 213px;
+              left: 60px;
+              top: 762px; }
+            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .card-btn-4 {
+              width: 212px;
+              left: 60px;
+              top: 662px; }
+            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .card-btn-5 {
+              width: 291px;
+              left: 60px;
+              top: 702px; }
+            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .img-mask {
+              position: absolute;
+              top: 0;
+              left: 0;
+              overflow: hidden;
+              width: 610px;
+              height: 296px;
+              background: #fff; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .img-mask .card-image {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 830px;
+                height: 506px;
+                margin-left: -415px;
+                margin-top: -253px; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .img-mask .card-image-1 {
+                background: url("../img/card1_img.jpg") 50% 50%; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .img-mask .card-image-2 {
+                background: url("../img/card2_img.jpg") 50% 50%; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .img-mask .card-image-3 {
+                background: url("../img/card3_img.jpg") 50% 50%; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .img-mask .card-image-4 {
+                background: url("../img/card4_img.jpg") 50% 50%; }
+              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .img-mask .card-image-5 {
+                background: url("../img/card5_img.jpg") 50% 50%; }
         .card-holder .card-box .card-clip .card-pod .pod {
           position: absolute;
           left: 0;
           top: 0;
           transform: translateX(-50%) translateY(-50%); }
-        .card-holder .card-box .card-clip .card-pod .card img {
-          width: 810px; }
 
 .list-holder {
   width: 100vw; }
@@ -1171,5 +1254,9 @@ footer {
       float: left; }
     footer a.btn-2 {
       float: right; }
+
+.hover {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none; }
 
 /*# sourceMappingURL=main.css.map */
