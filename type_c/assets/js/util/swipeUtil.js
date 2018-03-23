@@ -45,8 +45,8 @@ var swipeUtil = (function($){
 
         var onTouchMove = function($e) {
             var touch = $e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
-            dx = event.touches[0].clientX - sx + ox;
-            dy = event.touches[0].clientY - sy + oy;
+            dx = touch.pageX - sx + ox;
+            dy = touch.pageY - sy + oy;
             //console.log('touchmove',dx,dy);
             movePosition(dx,dy);
         }
@@ -80,68 +80,6 @@ var swipeUtil = (function($){
 
         that.addEvent = function(){
             touchTarget.on('touchstart' ,onTouchStart);
-            /*touchTarget.on('touchstart',function(e) {
-
-
-
-                if(isTouchStart === true) return;
-                isTouchStart = true;
-
-                var touch = $e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
-
-                sx = dx = touch.pageX;
-                sy = dy = touch.pageY;
-                // console.log('touchstart');
-
-            });
-
-            touchTarget.on('touchmove',function(e){
-                //e.preventDefault();
-                var event = e.originalEvent;
-                //event.preventDefault();
-                if(isTouchStart){
-                    dx = event.touches[0].clientX - sx + ox;
-                    dy = event.touches[0].clientY - sy + oy;
-                    //console.log('touchmove',dx,dy);
-                    movePosition(dx,dy);
-
-                    isTouchMove = true;
-                }
-            });
-
-            touchTarget.on('touchend',function(e){
-                var event = e.originalEvent;
-                //event.preventDefault();
-                //e.preventDefault();
-                if(isTouchStart && isTouchMove){
-                    // console.log('touchend');
-
-                    var distance;
-
-                    switch(mode){
-                        case 'horizontal' :
-                            distance = dx - ox;
-                            break;
-                        case 'vertical' :
-                            distance = dy - oy;
-                            break;
-                    }
-
-                    if (Math.abs(distance) >= swipeThreshold) {
-                        if (distance < 0) {
-                            that.goToNextSlide();
-                        } else {
-                            that.goToPrevSlide();
-                        }
-                        //el.stopAuto();
-                    } else {
-                        // el.animate(property, 200);
-                        //setPositionProperty(value, 'reset', 200);
-                        that.goToSlide(curNum);
-                    }
-                }
-
-            });*/
         };
         that.removeEvent = function(){
 

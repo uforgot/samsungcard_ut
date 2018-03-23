@@ -27,7 +27,7 @@ var main = (function($) {
 
         onResize();
 
-        $('.txt-con-list .btn').on('click',function(e){
+        $('.txt-con-list .btn').on('touchend',function(e){
             e.preventDefault();
 
             var index = $(this).parent().index();
@@ -63,9 +63,14 @@ var main = (function($) {
             })
         })
 
-        $('.hover').bind('touchstart touchend', function(e) {
+        $('.hover').bind('touchstart', function(e) {
             e.preventDefault();
-            $(this).toggleClass('hover-effect');
+            $(this).addClass('hover-effect');
+        });
+
+        $('.hover').bind('touchend', function(e) {
+            e.preventDefault();
+            $(this).removeClass('hover-effect');
         });
 
     }
