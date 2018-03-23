@@ -1,0 +1,50 @@
+@import "../../../common/scss/style.scss";
+@import "../../../common/scss/mixin.scss";
+
+$tW : 720;
+@mixin calFontSize( $fontSize ){
+    font-size: ($fontSize / $tW) * 100 + vw;
+}
+
+.popup {
+    .menu-wrap {
+        position:fixed;
+        top:0; left:0;
+        z-index:1000;
+        width:100vw;
+        img {width:100%;}
+
+        .close-holder {
+            position:absolute;
+            width:percentage(134/$tW);
+            right:0;
+        }
+    }
+
+    .content-holder {width:100vw;
+        img {width:100vw;}
+
+        .section {position:relative;
+            .top-holder {position:absolute; width:100vw;
+                .on {position:absolute;left:0;top:0; width:100vw;
+                    @include css-value-transition('opacity 0.3s linear');
+                    @include opacity(0);
+                }
+
+                &.onFocus {
+                    .on {
+                        @include css-value-transition('opacity 0.3s linear');
+                        @include opacity(1);
+                    }
+                }
+
+                &.onFix {
+                    position:fixed; left:0; top:0;
+                }
+            }
+        }
+
+        .section-4 {height:100vh;}
+
+    }
+}
