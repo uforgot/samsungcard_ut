@@ -21,6 +21,8 @@ $tW : 720;
   font-size: ($fontSize / $tW) * 100 + vw;
 }
 
+
+
 .main{width:100vw;height:100vh;overflow: hidden;}
 
 .menu-wrap {
@@ -102,17 +104,67 @@ $tW : 720;
           .pod {position:absolute;left:0;top:0;
             transform:translateX(-50%) translateY(-50%);
           }
+
           .card {
-            //border-radius:60px;
-            img {width:810px;}
-            //box-shadow: 15px 13px 60px -15px rgba(0,0,0,0.2);
+            img {width:634px;}
+            .card-mask {
+              border:1px solid #d9d9d9;
+              position:absolute; top:17px; left:12px;
+              width:610px; height:1006px; background:#fff;
+              border-radius:23px; overflow:hidden;
+              img {width:100%;}
+
+              .card-float {position:absolute; left:50%; top:250px;
+                img {width:502px; height:370px; margin-left:-251px; margin-top:-185px;}
+              }
+
+              .button {position:absolute;
+                div {position:absolute;}
+                &.hover .focus { opacity:0; @include css-value-transition('opacity 0.2s')}
+                &.hover-effect .focus { opacity:1; @include css-value-transition('opacity 0.2s')}
+              }
+              .card-btn-1 {width:262px;left:176px; top:654px;}
+              .card-btn-2 {width:271px;left:60px; top:704px;}
+              .card-btn-3 {width:213px;left:60px; top:762px;}
+              .card-btn-4 {width:212px;left:60px; top:662px;}
+              .card-btn-5 {width:291px;left:60px; top:702px;}
+
+              .img-mask {
+                position:absolute; top:0; left:0; overflow:hidden;
+                width:610px; height:296px; background:#fff;
+
+                .card-image {position:absolute;top:50%;left:50%;
+                  width:830px; height:506px; margin-left:-415px; margin-top:-253px;
+                }
+
+                .card-image-1 {
+                  background:url('../img/card1_img.jpg') 50% 50%;
+                }
+
+                .card-image-2 {
+                  background:url('../img/card2_img.jpg') 50% 50%;
+                }
+
+                .card-image-3 {
+                  background:url('../img/card3_img.jpg') 50% 50%;
+                }
+
+                .card-image-4 {
+                  background:url('../img/card4_img.jpg') 50% 50%;
+                }
+
+                .card-image-5 {
+                  background:url('../img/card5_img.jpg') 50% 50%;
+                }
+
+              }
+            }
+
+
           }
         }
         .pod {position:absolute;left:0;top:0;
           transform:translateX(-50%) translateY(-50%);
-        }
-        .card {
-          img {width:810px;}
         }
       }
     }
@@ -132,4 +184,10 @@ footer{footer:100%;clear:both;
     &.btn-1{float:left;}
     &.btn-2{float:right;}
   }
+}
+
+
+.hover {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }

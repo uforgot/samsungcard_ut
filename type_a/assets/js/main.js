@@ -19,6 +19,7 @@ var main = (function($) {
 
     var backgroundElArray;
 
+    var currentFocus;
     var currentX;
 
     var setEl = function() {
@@ -52,11 +53,17 @@ var main = (function($) {
         setFocus(tmpIndex);
     };
 
+    var setNext = function() {
+
+    };
+
     var setFocus = function($index) {
         var tmpX = $index * CARD_MARGIN * -1;
         currentX = tmpX;
         cardContainer.css('transform', 'translateX('+tmpX +'px)');
         // cardContainer.css('left', tmpX);
+
+        currentFocus = $index;
 
         setScale($index);
         setBg($index);
@@ -68,9 +75,7 @@ var main = (function($) {
 
     var setX = function($x) {
         currentX = currentX + $x;
-
         cardContainer.css('transform', 'translateX('+ currentX +'px)');
-        // cardContainer.css('left', currentX);
     };
 
     var setScale = function($index) {
@@ -96,7 +101,10 @@ var main = (function($) {
 
     var onTouchStart = function($e) {
 
-        event.preventDefault();
+        if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+            event.preventDefault();
+        }
+
         if(isTouchDrag === true) return;
         isTouchDrag = true;
 
@@ -193,3 +201,12 @@ $(window).on('ready',function(){
 $(window).on('load',function(){
     main.load_init();
 });
+
+$(document).ready(function() {
+    $('.hover').bind('touchstart touchend', function(e) {
+        e.preventDefault();
+        $(this).toggleClass('hover-effect');
+    });
+});
+
+

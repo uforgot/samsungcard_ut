@@ -63,7 +63,7 @@ var popup = (function($) {
         }
 
         // console.log(currentSection);
-        console.log('curSection ' + currentSection + ' : ' + (sectionTopArray[currentSection] - scrollTop));
+        // console.log('curSection ' + currentSection + ' : ' + (sectionTopArray[currentSection] - scrollTop));
 
 
         if (currentSection === 0) {
@@ -115,5 +115,5 @@ $(window).on('ready',function(){
 });
 $(window).on('load',function(){
     popup.load_init();
-    popup.setSection(3);
+    popup.setSection(0);
 });
