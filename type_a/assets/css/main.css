@@ -1018,6 +1018,11 @@ body, html {
   height: 100vh;
   overflow: hidden; }
 
+.txt {
+  position: absolute;
+  top: 8vh;
+  z-index: 21000; }
+
 .menu-wrap {
   z-index: 10000;
   position: fixed;
@@ -1131,7 +1136,44 @@ body, html {
       .card-holder .card-box .card-clip .card-pod {
         position: absolute;
         left: 0; }
+        .card-holder .card-box .card-clip .card-pod .card-float {
+          position: absolute;
+          left: 50%;
+          top: -252px;
+          -webkit-transition: -webkit-transform 0.2s ease-out 0s;
+          -moz-transition: -moz-transform 0.2s ease-out 0s;
+          -ms-transition: -ms-transform 0.2s ease-out 0s;
+          -o-transition: -o-transform 0.2s ease-out 0s;
+          transition: transform 0.2s ease-out 0s;
+          -webkit-transform: translate3d(0, 0, 0);
+          -webkit-backface-visibility: hidden; }
+          .card-holder .card-box .card-clip .card-pod .card-float.drag {
+            -webkit-transition: -webkit-transform 0s ease-out 0s;
+            -moz-transition: -moz-transform 0s ease-out 0s;
+            -ms-transition: -ms-transform 0s ease-out 0s;
+            -o-transition: -o-transform 0s ease-out 0s;
+            transition: transform 0s ease-out 0s; }
+          .card-holder .card-box .card-clip .card-pod .card-float img {
+            width: 502px;
+            height: 370px;
+            margin-left: -251px;
+            margin-top: -185px;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            transform: scale(2); }
+            .card-holder .card-box .card-clip .card-pod .card-float img.onShow {
+              opacity: 1;
+              filter: alpha(opacity=100);
+              transform: scale(1);
+              -webkit-transition: -webkit-transform 0.5s ease-in 0s, opacity 0.5s ease-in 0s;
+              -moz-transition: -moz-transform 0.5s ease-in 0s, opacity 0.5s ease-in 0s;
+              -ms-transition: -ms-transform 0.5s ease-in 0s, opacity 0.5s ease-in 0s;
+              -o-transition: -o-transform 0.5s ease-in 0s, opacity 0.5s ease-in 0s;
+              transition: transform 0.5s ease-in 0s, opacity 0.5s ease-in 0s; }
         .card-holder .card-box .card-clip .card-pod .card-scale {
+          opacity: 0;
+          filter: alpha(opacity=0);
+          margin-top: 50px;
           -webkit-transition: -webkit-transform 0.3s ease-out 0s;
           -moz-transition: -moz-transform 0.3s ease-out 0s;
           -ms-transition: -ms-transform 0.3s ease-out 0s;
@@ -1140,6 +1182,15 @@ body, html {
           -webkit-transform: translate3d(0, 0, 0);
           -webkit-backface-visibility: hidden;
           position: absolute; }
+          .card-holder .card-box .card-clip .card-pod .card-scale.onShow {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            margin-top: 0;
+            -webkit-transition: -webkit-transform 0.5s ease-out 0s, opacity 0.5s ease-out 0s, margin-top 0.5s ease-out 0s;
+            -moz-transition: -moz-transform 0.5s ease-out 0s, opacity 0.5s ease-out 0s, margin-top 0.5s ease-out 0s;
+            -ms-transition: -ms-transform 0.5s ease-out 0s, opacity 0.5s ease-out 0s, margin-top 0.5s ease-out 0s;
+            -o-transition: -o-transform 0.5s ease-out 0s, opacity 0.5s ease-out 0s, margin-top 0.5s ease-out 0s;
+            transition: transform 0.5s ease-out 0s, opacity 0.5s ease-out 0s, margin-top 0.5s ease-out 0s; }
           .card-holder .card-box .card-clip .card-pod .card-scale .pod {
             position: absolute;
             left: 0;
@@ -1160,15 +1211,6 @@ body, html {
             -webkit-mask-image: -webkit-radial-gradient(white, black); }
             .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask img {
               width: 100%; }
-            .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .card-float {
-              position: absolute;
-              left: 50%;
-              top: 250px; }
-              .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .card-float img {
-                width: 502px;
-                height: 370px;
-                margin-left: -251px;
-                margin-top: -185px; }
             .card-holder .card-box .card-clip .card-pod .card-scale .card .card-mask .drag-area {
               position: absolute;
               top: 0;
@@ -1267,7 +1309,9 @@ body, html {
     width: 100vw; }
 
 header {
-  width: 100%; }
+  width: 100%;
+  position: fixed;
+  z-index: 20000; }
 
 footer {
   width: 100%;

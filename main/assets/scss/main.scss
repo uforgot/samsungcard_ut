@@ -15,10 +15,10 @@ $tW : 720;
 
     width:100vw;
     img {width:100vw;}
-    .bg-holder {position:absolute; width:100vw;
-        img {width:100vw;}
+
+    .bg-holder {position:relative; width:100vw; background:#fff;
+        img {width:100%; height:100%;}
         .bg {
-            background:#fff;
             @include css-value-transition('opacity 1.0s ease-out 0s');
             position:absolute;left:0;top:0; @include opacity(0);
 
@@ -33,22 +33,42 @@ $tW : 720;
 }
 
 .top-holder {
-
     width:100vw;
     height:( 438 / $tW )*100vw;
 
     .cont-box {position:absolute; width:100%;
         text-align:center;
-        .txt-clip-1 {position:absolute; width:100%; top:percentage( 150 / 438 );
-            img {width:percentage(447/$tW); height:auto;}
+        .txt-clip-1 {position:absolute; width:100%; top:percentage( 84 / 438 );
+            img {width:100%; height:auto;}
         }
-        .txt-clip-2 {position:absolute; width:100%; top:percentage( 208 / 438 );
-            img {width:percentage(268/$tW);}
+        .txt-clip-2 {position:absolute; width:100%; top:percentage( 172 / 438 );
+                img {position:relative;width:percentage(210/$tW);}
+            .line {
+                position:relative; border-bottom:1px solid #fff; width:percentage(213/$tW);
+                margin:0 auto; @include opacity(0.4);
+            }
         }
-        .bg-clip {width:100vw;
+        .txt-focus-clip {
+            position:absolute; top:percentage( 228 / 438 );
+            transform-origin:50% 0;
+            left:50%;
+            width:450px;
+            margin-left:-225px;
+            height:34px;
+            overflow:hidden;
+            .txt-focus {
+                position:absolute;
+                left:50%;
+                top:0;
+                img {width:450px; margin-left:-225px;}
+                @include transform-css-transition(0.2s ease-out 0s);
+            }
+        }
+
+        .bg-clip {width:100vw; background:#ffffff;
             img {width:100vw;}
             .bg {
-                @include css-value-transition('opacity 1.06s ease-out 0s');
+                @include css-value-transition('opacity 1.0s ease-out 0s');
                 position:absolute;left:0;top:0; @include opacity(0);
 
                 &.onFocus {
@@ -56,6 +76,7 @@ $tW : 720;
                     @include opacity(1);
                 }
             }
+            .bg-1 {position:relative}
         }
     }
 }
@@ -65,6 +86,14 @@ $tW : 720;
     //border:1px solid #ff0;
     overflow:hidden; height:50vh;
 
+    @include transform(translateY(20px));
+    @include opacity(0);
+
+    &.onShow {
+        @include transform(translateY(0));
+        @include opacity(1);
+        @include transform-css-transition(' 0.4s ease-out, opacity 0.4s ease-out');
+    }
 
 
     .card-box {position:absolute; left:50%; //container
@@ -118,4 +147,62 @@ $tW : 720;
 
 .list-holder {width:100vw;
     img {width:100vw;}
+    @include opacity(0);
+    display:block;
 }
+
+.list-1 {
+    z-index:100010;
+    &.onShow {
+        @include opacity(1);
+        @include css-value-transition('opacity 0.8s ease-out 0.0s');
+    }
+}
+
+.list-2 {
+    &.onShow {
+        @include opacity(1);
+        @include css-value-transition('opacity 1.0s ease-out 0.0s');
+    }
+}
+
+.list-3 {
+    &.onShow {
+        @include opacity(1);
+        @include css-value-transition('opacity 1.2s ease-out 0.0s');
+    }
+}
+
+.list-4 {
+    &.onShow {
+        @include opacity(1);
+        @include css-value-transition('opacity 2.0s ease-out 0.0s');
+    }
+}
+
+.cont-box-txt {
+    @include opacity(0);
+    @include transform('translateY(20)');
+    &.onShow {
+        @include opacity(1);
+        @include transform('translateY(0)');
+        @include transform-css-transition('0.6s ease-out 0s, opacity 0.6s ease-out 0s');
+    }
+}
+
+.intro-bg {
+    opacity:1;
+    z-index:100000;
+    position:absolute;
+    left:0; bottom:50vh;
+    width:100vw;
+    height:50vh;
+    background:#ffffff;
+
+    &.onShow {
+        height:0;
+        @include transform-css-transition('0.8s ease-in 0s, height 0.8s ease-in 0s');
+    }
+
+}
+
