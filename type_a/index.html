@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>samsung card</title>
-
+    
+    <link rel="stylesheet" href="assets/css/popup.css">
     <link rel="stylesheet" href="assets/css/main.css">
     
     <script type="text/javascript" src="../common/js/plugin/jquery-3.3.1.min.js"></script>
@@ -19,7 +20,6 @@
         <div class="container">
             <div class="txt"><img src="assets/img/txt.png"></div>
             
-            
             <div class="card-holder">
                 <div class="card-box">
                     <div class="card-clip">
@@ -31,13 +31,14 @@
                                         <div class="img-mask">
                                             <div class="card-image-1 card-image"></div>
                                         </div>
+                                        <div class="card-float"><img src="assets/img/card1_card.png"></div>
+                                        <div class="drag-area"></div>
                                         <div class="button card-btn-1 hover">
                                             <a href="#">
                                                 <div class="normal"><img src="assets/img/card1_bt.png"></div>
                                                 <div class="focus"><img src="assets/img/card1_bt_focus.png"></div>
                                             </a>
                                         </div>
-                                        <div class="card-float"><img src="assets/img/card1_card.png"></div>
                                     </div>
                                     <img src="assets/img/card_bg.png">
                                 </div>
@@ -52,7 +53,8 @@
                                         <div class="img-mask">
                                             <div class="card-image-2 card-image"></div>
                                         </div>
-                                        <div class="button card-btn-2 hover">
+                                        <div class="drag-area"></div>
+                                        <div class="button card-btn-2 hover"  card-index="0">
                                             <a href="#">
                                                 <div class="normal"><img src="assets/img/card2_bt.png"></div>
                                                 <div class="focus"><img src="assets/img/card2_bt_focus.png"></div>
@@ -72,7 +74,8 @@
                                         <div class="img-mask">
                                             <div class="card-image-3 card-image"></div>
                                         </div>
-                                        <div class="button card-btn-3 hover">
+                                        <div class="drag-area"></div>
+                                        <div class="button card-btn-3 hover"  card-index="1">
                                             <a href="#">
                                                 <div class="normal"><img src="assets/img/card3_bt.png"></div>
                                                 <div class="focus"><img src="assets/img/card3_bt_focus.png"></div>
@@ -92,7 +95,8 @@
                                         <div class="img-mask">
                                             <div class="card-image-4 card-image"></div>
                                         </div>
-                                        <div class="button card-btn-4 hover">
+                                        <div class="drag-area"></div>
+                                        <div class="button card-btn-4 hover" card-index="2">
                                             <a href="#">
                                                 <div class="normal"><img src="assets/img/card4_bt.png"></div>
                                                 <div class="focus"><img src="assets/img/card4_bt_focus.png"></div>
@@ -112,7 +116,8 @@
                                         <div class="img-mask">
                                             <div class="card-image-5 card-image"></div>
                                         </div>
-                                        <div class="button card-btn-5 hover">
+                                        <div class="drag-area"></div>
+                                        <div class="button card-btn-5 hover" card-index="3">
                                             <a href="#">
                                                 <div class="normal"><img src="assets/img/card5_bt.png"></div>
                                                 <div class="focus"><img src="assets/img/card5_bt_focus.png"></div>
@@ -128,17 +133,25 @@
                 </div>
             </div>
         </div>
+
         <footer>
-            <a class="btn-1">
+            <div class="button hover">
+                <div class="focus"><img src="assets/img/footer_btn1_focus.jpg"></div>
                 <img src="assets/img/footer_btn1.jpg">
-            </a>
-            <a class="btn-2">
+                <div class="normal"><img src="assets/img/footer_btn1.jpg"></div>
+            </div>
+            <div class="button hover">
+                <div class="focus"><img src="assets/img/footer_btn2_focus.jpg"></div>
                 <img src="assets/img/footer_btn2.jpg">
-            </a>
+                <div class="normal"><img src="assets/img/footer_btn2.jpg"></div>
+            </div>
         </footer>
+    
+        <div class="popup-con"></div>
     </div>
 
     <script type="text/javascript" src="../common/js/util/easing.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/popup.js"></script>
 </body>
 </html>

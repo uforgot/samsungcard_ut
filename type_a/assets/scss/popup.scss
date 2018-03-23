@@ -1,0 +1,70 @@
+@import "../../../common/scss/style.scss";
+@import "../../../common/scss/mixin.scss";
+
+$tW : 720;
+@mixin calFontSize( $fontSize ){
+    font-size: ($fontSize / $tW) * 100 + vw;
+}
+
+.popup {background-color: #fff;
+    .menu-wrap {
+        position:fixed;
+        top:-100%; left:0;
+        z-index:1000;
+        width:100vw;
+        img {width:100%;}
+
+        overflow:hidden;
+
+        @include css-transition-in(top,0.5);
+
+        .title-holder {
+            position:absolute;
+            width: 100%;
+            left:0;
+            top:0;
+        }
+
+        .close-holder {
+            position:absolute;
+            width:percentage(134/$tW);
+            right:0;
+            a{
+                display: block;
+            }
+        }
+
+        &.onShow {
+            @include css-transition-inout(top,0.5);
+            top:0;
+        }
+
+    }
+
+    .content-holder {width:100vw;
+        img {width:100vw;}
+
+        .section {position:relative;
+            .top-holder {position:absolute; width:100vw;
+                .on {position:absolute;left:0;top:0; width:100vw;
+                    @include css-value-transition('opacity 0.3s linear');
+                    @include opacity(0);
+                }
+
+                &.onFocus {
+                    .on {
+                        @include css-value-transition('opacity 0.3s linear');
+                        @include opacity(1);
+                    }
+                }
+
+                &.onFix {
+                    position:fixed; left:0; top:0;
+                }
+            }
+        }
+
+        .section-4 {height:100vh;}
+
+    }
+}
