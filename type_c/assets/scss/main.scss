@@ -79,10 +79,10 @@ a{display: block;}
   .circle-3{
     .ktx{position: absolute; width:percentage(477/449); top: 22%; left: -3.5%; @include transform(translate3d(0,100%,0));@include opacity(0);@include transform-css-transition('0.3s ease-in, opacity,0.2s');}
     &.onShow{
-      .ktx{@include transform-css-transition('0.5s ease-out, opacity 0.4s ease-in');@include transform(translate3d(0,0,0));position: absolute;@include opacity(1);}
+      .ktx{@include transform-css-transition('0.5s ease-out, opacity 0.3s ease-in');@include transform(translate3d(0,0,0));position: absolute;@include opacity(1);}
     }
     &.onHide{
-      .ktx{@include transform-css-transition('0.3s ease-in, opacity 0.2s');@include transform(translate3d(0,-200%,0));@include opacity(0);}
+      .ktx{@include transform-css-transition('0.3s ease-in, opacity 0.2s');@include transform(translate3d(0,-100%,0));@include opacity(0);}
     }
   }
   .circle-4{
