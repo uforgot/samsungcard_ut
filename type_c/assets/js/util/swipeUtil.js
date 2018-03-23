@@ -29,71 +29,59 @@ var swipeUtil = (function($){
         var obj = {x:0,y:0};
         var isSkipSlide = false;
 
+
+        var onTouchStart = function($e) {
+            if(isTouchStart === true) return;
+            isTouchStart = true;
+
+            var touch = $e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+
+            sx = dx = touch.pageX;
+            sy = dy = touch.pageY;
+
+            $(window).on('touchmove' ,onTouchMove);
+            $(window).on('touchend' ,onTouchEnd);
+        }
+
+        var onTouchMove = function($e) {
+            var touch = $e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+            dx = touch.pageX - sx + ox;
+            dy = touch.pageY - sy + oy;
+            //console.log('touchmove',dx,dy);
+            movePosition(dx,dy);
+        }
+        var onTouchEnd = function($e) {
+            isTouchStart = false;
+
+            var distance;
+
+            switch(mode){
+                case 'horizontal' :
+                    distance = dx - ox;
+                    break;
+                case 'vertical' :
+                    distance = dy - oy;
+                    break;
+            }
+
+            if (Math.abs(distance) >= swipeThreshold) {
+                if (distance < 0) {
+                    that.goToNextSlide();
+                } else {
+                    that.goToPrevSlide();
+                }
+            } else {
+                that.goToSlide(curNum);
+            }
+
+            $(window).off('touchmove' ,onTouchMove);
+            $(window).off('touchend' ,onTouchEnd);
+        }
+
         that.addEvent = function(){
-
-            touchTarget.on('touchstart',function(e){
-                //e.preventDefault();
-                var event = e.originalEvent;
-                //event.preventDefault();
-
-
-                sx = dx = event.touches[0].clientX;
-                sy = dy = event.touches[0].clientY;
-                // console.log('touchstart');
-                isTouchStart = true;
-            });
-
-            touchTarget.on('touchmove',function(e){
-                //e.preventDefault();
-                var event = e.originalEvent;
-                //event.preventDefault();
-                if(isTouchStart){
-                    dx = event.touches[0].clientX - sx + ox;
-                    dy = event.touches[0].clientY - sy + oy;
-                    //console.log('touchmove',dx,dy);
-                    movePosition(dx,dy);
-
-                    isTouchMove = true;
-                }
-            });
-
-            touchTarget.on('touchend',function(e){
-                var event = e.originalEvent;
-                //event.preventDefault();
-                //e.preventDefault();
-                if(isTouchStart && isTouchMove){
-                    // console.log('touchend');
-
-                    var distance;
-
-                    switch(mode){
-                        case 'horizontal' :
-                            distance = dx - ox;
-                            break;
-                        case 'vertical' :
-                            distance = dy - oy;
-                            break;
-                    }
-
-                    if (Math.abs(distance) >= swipeThreshold) {
-                        if (distance < 0) {
-                            that.goToNextSlide();
-                        } else {
-                            that.goToPrevSlide();
-                        }
-                        //el.stopAuto();
-                    } else {
-                        // el.animate(property, 200);
-                        //setPositionProperty(value, 'reset', 200);
-                        that.goToSlide(curNum);
-                    }
-                }
-
-            });
+            touchTarget.on('touchstart' ,onTouchStart);
         };
         that.removeEvent = function(){
-          /*  sx = dx = ox = 0;
-            sy = dy = oy = 0;*/
 
             touchTarget.off('touchstart');
             touchTarget.off('touchmove');

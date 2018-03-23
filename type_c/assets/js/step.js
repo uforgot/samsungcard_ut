@@ -84,15 +84,15 @@ var step = (function($){
         var per = p*(TOTALNUM-1)/100;
         per = per<0 ? 0 : per;
 
-        $('.event-txt').css({'transform':'translateY('+per*-30+'%)'});
-        $('.slide-btn-holder').css({'transform':'translateY('+per*200+'%)','opacity':1-per*2});
+        $('.event-txt').css({'transform':'translate3d(0,'+per*-30+'%,0)'});
+        $('.slide-btn-holder').css({'transform':'translate3d(0,'+per*200+'%,0)','opacity':1-per*2});
 
         var p1 = per/0.5;
         var p2,p3,p4,p5;
 
         var pp1 = (per-0.5)/0.5;
         if(per < 0.5){
-            $('.card-con').css({'transform':'translateY('+p1*-30+'%) scale('+(1-p1*0.3)+')', 'opacity' : 1-p1});
+            $('.card-con').css({'transform':'translate3d(0,'+p1*-30+'%,0) scale3d('+(1-p1*0.3)+','+(1-p1*0.3)+','+(1-p1*0.3)+')', 'opacity' : 1-p1});
 
             $('.circle-con-list').css('opacity',0);
             $('.txt-con-list').css({'opacity' : 0});
@@ -100,24 +100,24 @@ var step = (function($){
         }else{
             $('.card-con').css('opacity',0);
 
-            $('.circle-con-list').css({'transform':'translateY('+((pp1*-50)+50)+'%) scale('+(pp1*0.3 + 0.7)+')', 'opacity' : pp1});
-            $('.txt-con-list').css({'transform':'translateY('+((pp1*-30)+30)+'%)', 'opacity' : pp1});
+            $('.circle-con-list').css({'transform':'translate3d(0,'+((pp1*-50)+50)+'%,0) scale3d('+(pp1*0.3 + 0.7)+','+(pp1*0.3 + 0.7)+','+(pp1*0.3 + 0.7)+')', 'opacity' : pp1});
+            $('.txt-con-list').css({'transform':'translate3d(0,'+((pp1*-30)+30)+'%,0)', 'opacity' : pp1});
         }
         if(per>0) {
             p2 = easeInOutCubic(per,0,1,0.5);
-            $('.main-txt .txt').css({'transform':'translateY('+p2*-10+'%)', 'opacity' : 1-p2});
+            $('.main-txt .txt').css({'transform':'translate3d(0,'+p2*-10+'%,0)', 'opacity' : 1-p2});
         }
         if(per>0.1) {
             p3 = easeInOutCubic(per-0.1,0,1,0.5);
-            $('.main-txt .title').css({'transform':'translateY('+p3*-20+'%)', 'opacity' : 1-p3});
+            $('.main-txt .title').css({'transform':'translate3d(0,'+p3*-20+'%,0)', 'opacity' : 1-p3});
         }
         if(per>0.2) {
             p4 = easeInOutCubic(per-0.2,0,1,0.5);
-            $('.main-txt .btn').css({'transform':'translateY('+p4*-20+'%)', 'opacity' : 1-p4});
+            $('.main-txt .btn').css({'transform':'translate3d(0,'+p4*-20+'%,0)', 'opacity' : 1-p4});
         }
         if(per>0.3) {
             p5 = easeInOutCubic(per-0.3,0,1,0.5);
-            $('.main-txt .benefit').css({'transform':'translateY('+p5*-20+'%)', 'opacity' : 1-p5});
+            $('.main-txt .benefit').css({'transform':'translate3d(0,'+p5*-20+'%,0)', 'opacity' : 1-p5});
         }
     }
     var motion1 = function(per){
