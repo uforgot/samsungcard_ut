@@ -10,16 +10,18 @@ var main = (function($) {
         percent = percent.toFixed(2);
         stepNum = Math.floor(percent/stepPercent);
 
-        step.motion(percent,stepNum);
+
         var num = Math.round(percent/stepPercent);
         $('.indi-con-list li').removeClass('active');
         $('.indi-con-list li').eq(num).addClass('active');
 
-        if(percent <= stepPercent){
+        step.motion(percent,stepNum,num);
+
+      /*  if(percent <= stepPercent){
             swiper.setSkipSlide(false);
         }else{
             swiper.setSkipSlide(true);
-        }
+        }*/
     }
 
     var addEvent = function(){
@@ -64,12 +66,12 @@ var main = (function($) {
         })
 
         $('.hover').bind('touchstart', function(e) {
-            e.preventDefault();
+            //e.preventDefault();
             $(this).addClass('hover-effect');
         });
 
         $('.hover').bind('touchend', function(e) {
-            e.preventDefault();
+            //e.preventDefault();
             $(this).removeClass('hover-effect');
         });
 
