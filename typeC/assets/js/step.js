@@ -5,37 +5,77 @@ var step = (function($){
                 motion0(per);
                 $('.circle-1').removeClass('onShow');
                 $('.sub-1').removeClass('onShow');
-                $('.txt-1').removeClass('onShow')
+                $('.txt-1').removeClass('onShow');
+                $('.shadow-1').removeClass('onShow');
                 break;
             case 1 :
                 motion1(per);
                 $('.circle-1').removeClass('onHide').addClass('onShow');
                 $('.sub-1').removeClass('onHide').addClass('onShow');
                 $('.txt-1').removeClass('onHide').addClass('onShow');
+                $('.shadow-1').addClass('onShow');
                 $('.circle-2 .circle').removeClass('onShow');
 
                 $('.circle-2').removeClass('onShow');
                 $('.sub-2').removeClass('onShow');
                 $('.txt-2').removeClass('onShow');
+                $('.shadow-2').removeClass('onShow');
                 break;
             case 2 :
                 $('.circle-1').removeClass('onShow').addClass('onHide');
                 $('.sub-1').removeClass('onShow').addClass('onHide');
                 $('.txt-1').removeClass('onShow').addClass('onHide');
-                $('.circle-2 .circle').addClass('onShow');
+                $('.shadow-1').removeClass('onShow');
 
+                $('.circle-2 .circle').addClass('onShow');
                 $('.circle-2').removeClass('onHide').addClass('onShow');
                 $('.sub-2').removeClass('onHide').addClass('onShow');
                 $('.txt-2').removeClass('onHide').addClass('onShow');
+                $('.shadow-2').addClass('onShow');
+
+                $('.circle-3 .circle').removeClass('onShow');
+                $('.circle-3').removeClass('onShow')
+                $('.sub-3').removeClass('onShow')
+                $('.txt-3').removeClass('onShow')
+                $('.shadow-3').removeClass('onShow');
+
                 motion2(per);
                 break
             case 3 :
+                $('.circle-2').removeClass('onShow').addClass('onHide');
+                $('.sub-2').removeClass('onShow').addClass('onHide');
+                $('.txt-2').removeClass('onShow').addClass('onHide');
+                $('.shadow-2').removeClass('onShow');
+
+                $('.circle-3 .circle').addClass('onShow');
+                $('.circle-3').removeClass('onHide').addClass('onShow');
+                $('.sub-3').removeClass('onHide').addClass('onShow');
+                $('.txt-3').removeClass('onHide').addClass('onShow');
+                $('.shadow-3').addClass('onShow');
+
+                $('.circle-4 .circle').removeClass('onShow');
+                $('.circle-4').removeClass('onShow')
+                $('.sub-4').removeClass('onShow')
+                $('.txt-4').removeClass('onShow')
+                $('.shadow-4').removeClass('onShow');
                 motion3(per);
                 break
             case 4 :
+                $('.circle-3').removeClass('onShow').addClass('onHide');
+                $('.sub-3').removeClass('onShow').addClass('onHide');
+                $('.txt-3').removeClass('onShow').addClass('onHide');
+                $('.shadow-3').removeClass('onShow');
+
+                $('.circle-4 .circle').addClass('onShow');
+                $('.circle-4').removeClass('onHide').addClass('onShow');
+                $('.sub-4').removeClass('onHide').addClass('onShow');
+                $('.txt-4').removeClass('onHide').addClass('onShow');
+                $('.shadow-4').addClass('onShow');
+
                 motion4(per);
                 break
         }
+        console.log(num);
 
     }
 
@@ -67,7 +107,7 @@ var step = (function($){
             $('.sub-1 .cloud-2').css({'transform':'translateY('+40+'%)', 'opacity' : 0});
             $('.sub-1 .cloud-3').css({'transform':'translateY('+ -80+'%)', 'opacity' : 0});*/
 
-            $('.shadow-1').css('opacity',0);
+            //$('.shadow-1').css('opacity',0);
         }else{
             $('.card-con').css('opacity',0);
 

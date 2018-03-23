@@ -1,4 +1,4 @@
-const TOTALNUM = 3;
+const TOTALNUM = 5;
 var main = (function($) {
 
     var rq,swiper,stepNum,stepPercent,winW,winH,scrollTop,scrollBottom;
@@ -15,6 +15,12 @@ var main = (function($) {
         var num = Math.round(percent/stepPercent);
         $('.indi-con-list li').removeClass('active');
         $('.indi-con-list li').eq(num).addClass('active');
+
+        if(percent <= stepPercent){
+            swiper.setSkipSlide(false);
+        }else{
+            swiper.setSkipSlide(true);
+        }
     }
 
     var addEvent = function(){

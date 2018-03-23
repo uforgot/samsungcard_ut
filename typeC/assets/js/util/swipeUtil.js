@@ -14,7 +14,7 @@ var swipeUtil = (function($){
         var that = {};
         that.settings = $.extend({}, defaults, spec);
 
-        var isTouch = false;
+        var isTouchStart = false,isTouchMove=false;
         var sx,sy,dx,dy,ox=0,oy=0;
         var touchTarget = that.settings.touchTarget;
         var moveTarget = that.settings.moveTarget;
@@ -27,6 +27,7 @@ var swipeUtil = (function($){
         var moveWidth = moveTarget.width();
         var curNum = 0;
         var obj = {x:0,y:0};
+        var isSkipSlide = false;
 
         var addEvent = function(){
 
@@ -35,22 +36,24 @@ var swipeUtil = (function($){
                 var event = e.originalEvent;
                 //event.preventDefault();
 
-                isTouch = true;
+
                 sx = dx = event.touches[0].clientX;
                 sy = dy = event.touches[0].clientY;
                 // console.log('touchstart');
-
+                isTouchStart = true;
             });
 
             touchTarget.on('touchmove',function(e){
                 //e.preventDefault();
                 var event = e.originalEvent;
                 //event.preventDefault();
-                if(isTouch){
+                if(isTouchStart){
                     dx = event.touches[0].clientX - sx + ox;
                     dy = event.touches[0].clientY - sy + oy;
                     //console.log('touchmove',dx,dy);
                     movePosition(dx,dy);
+
+                    isTouchMove = true;
                 }
             });
 
@@ -58,7 +61,7 @@ var swipeUtil = (function($){
                 var event = e.originalEvent;
                 //event.preventDefault();
                 //e.preventDefault();
-                if(isTouch){
+                if(isTouchStart && isTouchMove){
                     // console.log('touchend');
 
                     var distance;
@@ -71,7 +74,6 @@ var swipeUtil = (function($){
                             distance = dy - oy;
                             break;
                     }
-
 
                     if (Math.abs(distance) >= swipeThreshold) {
                         if (distance < 0) {
@@ -140,7 +142,7 @@ var swipeUtil = (function($){
 
         that.goToSlide = function(num){
             curNum = num;
-            var x,y
+            var x,y;
 
             switch(mode){
                 case 'horizontal' :
@@ -154,21 +156,31 @@ var swipeUtil = (function($){
             }
 
             if(isFreeze) {
-                $(obj).stop(true,true).animate({x : x , y : y}, {
-                    duration: 400,
-                    step: function (now, fx) {
-                        dx = obj.x;
-                        dy = obj.y;
-                        checkPercent(that.getPercent());
-                    },
-                    complete: function () {
-                        ox = dx = x;
-                        oy = dy = y;
-                        checkPercent(that.getPercent());
-                        isTouch = false;
-                       console.log("end",sy,dy,oy,y)
-                    }
-                });
+                if(isSkipSlide){
+                    ox = dx = x;
+                    oy = dy = y;
+                    checkPercent(that.getPercent());
+                    isTouchStart = false;
+                    isTouchMove = false;
+                }else{
+                    $(obj).stop(true,true).animate({x : x , y : y}, {
+                        duration: 400,
+                        step: function (now, fx) {
+                            dx = obj.x;
+                            dy = obj.y;
+                            checkPercent(that.getPercent());
+                        },
+                        complete: function () {
+                            ox = dx = x;
+                            oy = dy = y;
+                            checkPercent(that.getPercent());
+                            isTouchStart = false;
+                            isTouchMove = false;
+                            // console.log("end",sy,dy,oy,y)
+                        }
+                    });
+                }
+
             }else{
                 moveTarget.stop().animate({transform : 'translate('+ x +'px,'+ y +'px)'}, {
                     duration: 400,
@@ -181,12 +193,14 @@ var swipeUtil = (function($){
                     complete: function () {
                         ox = dx = x;
                         oy = dy = y;
-                        isTouch = false;
+                        isTouchStart = false;
                     }
                 });
             }
         }
-
+        that.setSkipSlide = function(boo){
+            isSkipSlide = boo;
+        }
         that.init();
         return that;
     }
