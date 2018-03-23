@@ -6,6 +6,8 @@ var popup = (function($) {
     var titleElArray = [];
     var titleHeight;
     var currentSection = 0;
+    var menuHolderEl = $('.menu-wrap');
+    var titleHolderEl = $(' .popup .menu-wrap .title-holder');
 
     var addEvent = function(){
         $(window).on('resize',onResize);
@@ -18,8 +20,6 @@ var popup = (function($) {
         winH = $(window).height();
         ratio = winW / 720;
 
-        console.log($('.popup .content-holder .section-1'));
-
         sectionTopArray = [
             sectionElArray[0].offset().top,
             sectionElArray[1].offset().top,
@@ -28,6 +28,7 @@ var popup = (function($) {
         ];
 
         titleHeight = Math.floor(300 *ratio);
+        menuHolderEl.css('height', titleHeight);
         onScroll();
     };
 
@@ -50,37 +51,34 @@ var popup = (function($) {
     var setTitleTop = function() {
         var i;
         var top;
-        var height;
-        var titleTop, titleTopTmp,  titleMaxTop;
+        var titleTop , titleMargin;
+        var currentSection = 0;
+
 
         for (i=0;i<4;i++) {
             top = sectionTopArray[i];
-            height = Math.round(sectionElArray[i].height());
-
-            titleTop = Math.round(scrollTop -top);
-            titleTopTmp = scrollTop -top;
-            titleMaxTop = height - titleElArray[i].height();
-
-            if (titleTop <0) titleTop = 0;
-            if (titleTop > titleMaxTop) titleTop = titleMaxTop;
-
-            if (titleTop === titleTopTmp) {
-                titleElArray[i].addClass('onFix');
-                titleElArray[i].css('top', 0);
-            }else {
-                titleElArray[i].removeClass('onFix');
-                titleElArray[i].css('top', titleTop);
+            if (( top - scrollTop) < titleHeight) {
+                currentSection = i;
             }
-
-
-            if (i<=currentSection) {
-                titleElArray[i].addClass('onFocus');
-            } else {
-                titleElArray[i].removeClass('onFocus');
-            }
-
-            // console.log(i + ' : ' + scrollTop + ': top:' + top + ' , ' + 'height:' + height + ' maxTop:' + titleMaxTop + ' titleTop' + titleTop);
         }
+
+        // console.log(currentSection);
+        console.log('curSection ' + currentSection + ' : ' + (sectionTopArray[currentSection] - scrollTop));
+
+
+        if (currentSection === 0) {
+            titleTop = 0;
+        } else {
+            titleMargin = (sectionTopArray[currentSection] - scrollTop);
+            if (titleMargin < 0) titleMargin = 0;
+            titleTop = (titleHeight * currentSection * -1) + titleMargin;
+        }
+        titleHolderEl.css('top', titleTop)
+    };
+
+    var _setSection = function($index) {
+        $('html, body').animate({scrollTop: sectionTopArray[$index]}, 100);
+        // console.log(sectionTopArray[$index]);
     };
 
     /*================================================================================================================*/
@@ -107,7 +105,8 @@ var popup = (function($) {
 
     return{
         init:_init,
-        load_init:_load_init
+        load_init:_load_init,
+        setSection:_setSection
     }
 })(jQuery);
 
@@ -116,4 +115,5 @@ $(window).on('ready',function(){
 });
 $(window).on('load',function(){
     popup.load_init();
+    popup.setSection(3);
 });

@@ -14,6 +14,16 @@ $tW : 720;
         width:100vw;
         img {width:100%;}
 
+        overflow:hidden;
+
+        //@include opacity(0.5);
+
+        .title-holder {
+            position:absolute;
+            left:0;
+            top:0;
+        }
+
         .close-holder {
             position:absolute;
             width:percentage(134/$tW);
@@ -44,7 +54,7 @@ $tW : 720;
             }
         }
 
-        .section-4 {height:100vh;}
+        .section-4 {height:120vh;}
 
     }
 }

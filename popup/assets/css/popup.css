@@ -996,9 +996,14 @@ button::-moz-focus-inner {
   top: 0;
   left: 0;
   z-index: 1000;
-  width: 100vw; }
+  width: 100vw;
+  overflow: hidden; }
   .popup .menu-wrap img {
     width: 100%; }
+  .popup .menu-wrap .title-holder {
+    position: absolute;
+    left: 0;
+    top: 0; }
   .popup .menu-wrap .close-holder {
     position: absolute;
     width: 18.61111%;
@@ -1037,6 +1042,6 @@ button::-moz-focus-inner {
         left: 0;
         top: 0; }
   .popup .content-holder .section-4 {
-    height: 100vh; }
+    height: 120vh; }
 
 /*# sourceMappingURL=popup.css.map */
