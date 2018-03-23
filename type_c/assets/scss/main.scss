@@ -1,0 +1,225 @@
+@import "style";
+@import "mixin";
+$w : 720;
+$h : 1354;
+
+@mixin left-center($c:0,$t:$w) {
+  left : percentage(($t - $c)/2/$t);
+}
+@mixin margin-center($c:0,$t:$w) {
+  margin-left : percentage(($t - $c)/2/$t);
+}
+
+body, html {width: 100%;height: 100%;overflow: hidden;}
+.wrap{width: 100%;height: 100%;}
+.container{position:relative; width: 100%;height: percentage(1150/$h); overflow: hidden;}
+.contents{position:relative;width:100%;height:100%}
+
+section{width:100%;height:100% }
+/*.motion{@include transform-css-transition('0.3s , opacity 0.3s');}*/
+.event-txt{width:percentage(383 / $w); margin: 0 auto; padding-top: 12%;z-index : 10;}
+.card-con{position:relative;margin-top: 2%;
+  .card{width:percentage(567 / $w);top:0;margin: 0 auto;}
+}
+.main-txt{ position: relative;
+  .title{width:percentage(454 / $w);margin: -4% auto 0;}
+  .btn{width:percentage(248 / $w);margin: 7%auto 0;}
+  .benefit{width:percentage(506 / $w);margin: 9% auto 0;}
+}
+.circle-shadow{position:absolute;width:100%;top:-6%;
+  li{position: absolute; top:0;left:0;@include css-transition(opacity,0.3);@include opacity(0);width:percentage(720/$w);@include left-center(720);
+    &.onShow{@include css-transition(opacity,0.3);@include opacity(1);}
+  }
+}
+.circle-con-list{ position: absolute;width: 449/$w*100vw;height:449/$w*100vw; top: 10%;overflow: hidden;
+  @include left-center(449);@include borderRadius('',50%);@include  opacity(0);
+  li{position:absolute;width:100%;top:0;left:0;
+    .circle{width:100%;@include opacity(0);@include css-transition(opacity,0.5);
+      &.onShow{@include opacity(1);}
+    }
+  }
+  .circle-1{
+    .circle{@include opacity(1); }
+    .glass{position: absolute; width:percentage(190/449); top: 47%;left: 79%; @include transform(translate(200%,0) rotate(-300deg));@include transform-transition-in(0.3);}
+    .camera{position: absolute;top: 73%;left: 57%;width:percentage(177/449);@include transform(translate(50%,50%) rotate(-90deg));@include transform-transition-in(0.3);}
+    .bag{position: absolute;top: 40%;left: -4%;width:percentage(137/449);@include transform(translate(-200%,0) rotate(150deg));@include transform-transition-in(0.3);}
+    .flight{position: absolute;top: 9%;left: -18%;width:percentage(612/449);@include transform(translate(0,100%) rotate(0deg));@include transform-transition-in(0.3);}
+
+    &.onShow{
+      .glass{@include transform-transition-out(0.4,0.1);@include transform(translate(0,0) rotate(0deg));}
+      .camera{@include transform-transition-out(0.4,0.2);@include transform(translate(0,0) rotate(0deg));}
+      .bag{@include transform-transition-out(0.4,0.15);@include transform(translate(0,0) rotate(0deg));}
+      .flight{@include transform-css-transition('0.4s ease-out, opacity 0.3s');@include transform(translate(0,0) rotate(0deg));@include opacity(1);}
+    }
+    &.onHide{
+      .glass{@include transform-transition-in(0.25);@include transform(translate(200%,0) rotate(-300deg));}
+      .camera{@include transform-transition-in(0.25);@include transform(translate(50%,50%) rotate(-90deg));}
+      .bag{@include transform-transition-in(0.25);@include transform(translate(-200%,0) rotate(150deg));}
+      .flight{@include transform-css-transition('0.2s ease-in, opacity 0.2s');@include transform(translate(0,-200%) rotate(0deg));@include opacity(0);}
+    }
+  }
+
+  .circle-2{
+    .glass{position: absolute; width:percentage(269/449); top: 61%;left: -14%; @include transform(translate(-100%,50%));@include transform-transition-in(0.2);}
+    .popcorn{position: absolute; width:percentage(163/449); top: 55%;left: 72%; @include transform(translate(100%,50%));@include transform-transition-in(0.2);}
+    .coke{position: absolute; width:percentage(221/449); top: 28%;left: 27%; @include transform(translate(0,200%));@include transform-transition-in(0.2);}
+    &.onShow{
+      .glass{@include transform-transition-out(0.3,0.1);@include transform(translate(0,0));}
+      .popcorn{@include transform-transition-out(0.3,0.1);@include transform(translate(0,0));position: absolute;}
+      .coke{@include transform-transition-out(0.3);@include transform(translate(0,0));position: absolute;}
+    }
+    &.onHide{
+      .glass{@include transform-transition-in(0.2);@include transform(translate(-100%,-50%));}
+      .popcorn{@include transform-transition-in(0.2);@include transform(translate(100%,-50%));}
+      .coke{@include transform-transition-in(0.2);@include transform(translate(0,-200%));}
+    }
+  }
+
+  .circle-3{
+    .ktx{position: absolute; width:percentage(477/449); top: 22%; left: -3.5%; @include transform(translate(0,100%));@include opacity(0);@include transform-css-transition('0.2s ease-in, opacity,0.2s');}
+    &.onShow{
+      .ktx{@include transform-css-transition('0.3s ease-out, opacity 0.4s ease-in');@include transform(translate(0,0));position: absolute;@include opacity(1);}
+    }
+    &.onHide{
+      .ktx{@include transform-css-transition('0.2s ease-in, opacity 0.2s');@include transform(translate(0,-200%));@include opacity(0);}
+    }
+  }
+  .circle-4{
+    .puppy{position: absolute; width:percentage(477/449); top: 22%; left: -3.5%; @include transform(translate(0,100%));@include opacity(0);@include transform-css-transition('0.2s ease-in, opacity,0.2s');}
+    &.onShow{
+      .puppy{@include transform-css-transition('0.3s ease-out, opacity 0.4s');@include transform(translate(0,0));position: absolute;@include opacity(1);}
+    }
+    &.onHide{
+      .puppy{@include transform-css-transition('0.2s ease-in, opacity 0.2s');@include transform(translate(0,-200%));@include opacity(0);}
+    }
+  }
+}
+.sub-con-list{ position: absolute;width:100%; height:449/$w*100vw; top:8%;
+  li{position:absolute;width:100%;height:100%;top:0;left:0;}
+  .sub-1{
+    .cloud-1{position: absolute;width:percentage(222/$w); top:0%;left:20%;@include transform(translate(0,150%));@include opacity(0);@include transform-css-transition('0.2s 0s ease-out, opacity 0.3s 0s');}
+    .cloud-2{position: absolute;width:percentage(236/$w); top:21%;left:65%;@include transform(translate(0,150%));@include opacity(0);@include transform-css-transition('0.2s 0.1s ease-out, opacity 0.3s 0.1s');}
+    .cloud-3{position: absolute;width:percentage(220/$w); top:70%;left:9%;@include transform(translate(0,150%));@include opacity(0);@include transform-css-transition('0.2s 0.2s ease-out, opacity 0.3s 0.2s');}
+
+    &.onShow{
+      .cloud-1{@include transform-css-transition('0.4s 0s ease-out, opacity 0.4s 0s');@include transform(translate(0,0));@include opacity(1);}
+      .cloud-2{@include transform-css-transition('0.4s 0.1s ease-out, opacity 0.4s 0.1s');@include transform(translate(0,0));@include opacity(1);}
+      .cloud-3{@include transform-css-transition('0.4s 0.15s ease-out, opacity 0.4s 0.15s');@include transform(translate(0,0));@include opacity(1);}
+    }
+    &.onHide{
+      .cloud-1{@include transform-css-transition('0.2s 0.1s ease-out, opacity 0.2s 0.1s');@include transform(translate(0,-150%));@include opacity(0);}
+      .cloud-2{@include transform-css-transition('0.2s 0.05s ease-out, opacity 0.2s 0.05s');@include transform(translate(0,-150%));@include opacity(0);}
+      .cloud-3{@include transform-css-transition('0.2s 0s ease-out, opacity 0.2s 0s');@include transform(translate(0,-150%));@include opacity(0);}
+    }
+  }
+
+  .sub-2{
+    .s-1{position: absolute;width:percentage(389/$w); top:3%;left:29%;@include transform(translate(0,100%));@include opacity(0);@include transform-css-transition('0.3s 0s ease-out, opacity 0.3s 0s');}
+    .s-2{position: absolute;width:percentage(482/$w); top:43%;left:13%;@include transform(translate(0,100%));@include opacity(0);@include transform-css-transition('0.3s 0.1s ease-out, opacity 0.3s 0.1s');}
+
+    &.onShow{
+      .s-1{@include transform-css-transition('0.4s 0.1s ease-out, opacity 0.4s 0.1s');@include transform(translate(0,0));@include opacity(1);}
+      .s-2{@include transform-css-transition('0.4s 0.2s ease-out, opacity 0.4s 0.2s');@include transform(translate(0,0));@include opacity(1);}
+    }
+    &.onHide{
+      .s-1{@include transform-css-transition('0.2s 0s ease-out, opacity 0.2s 0s');@include transform(translate(0,-100%));@include opacity(0);}
+      .s-2{@include transform-css-transition('0.2s 0.05s ease-out, opacity 0.2s 0.05s');@include transform(translate(0,-100%));@include opacity(0);}
+    }
+  }
+  .sub-3{
+    .s-1{position: absolute;width:percentage(559/$w); top: 27%;left: 12%;@include transform(translate(0,100%));@include opacity(0);@include transform-css-transition('0.3s 0s ease-out, opacity 0.3s 0s');}
+
+    &.onShow{
+      .s-1{@include transform-css-transition('0.4s 0.1s ease-out, opacity 0.4s 0.1s');@include transform(translate(0,0));@include opacity(1);}
+    }
+    &.onHide{
+      .s-1{@include transform-css-transition('0.2s 0s ease-out, opacity 0.2s 0s');@include transform(translate(0,-100%));@include opacity(0);}
+    }
+  }
+  .sub-4{
+    .s-1{position: absolute;width:percentage(531/$w); top: 18%;left: 19%;@include transform(translate(0,100%));@include opacity(0);@include transform-css-transition('0.3s 0s ease-out, opacity 0.3s 0s');}
+
+    &.onShow{
+      .s-1{@include transform-css-transition('0.4s 0.1s ease-out, opacity 0.4s 0.1s');@include transform(translate(0,0));@include opacity(1);}
+    }
+    &.onHide{
+      .s-1{@include transform-css-transition('0.2s 0s ease-out, opacity 0.2s 0s');@include transform(translate(0,-100%));@include opacity(0);}
+    }
+  }
+}
+
+.txt-con-list{position: absolute;width:100%;top: 54.5%;@include  opacity(0);
+  li{position:absolute;width:100%;top:0;left:0;@include transform(translate(0,35%));@include opacity(0);@include transform-css-transition('0.2s ease-in-out , opacity 0.2s');
+    /*.icon{@include transform(translate(0,200%));@include opacity(0);@include transform-css-transition('0.2s 0.1s ease-in-out , opacity 0.2s 0.1s');}
+    .title{@include transform(translate(0,50%));@include opacity(0);@include transform-css-transition('0.2s 0.5s ease-in-out , opacity 0.2s 0.05s');}*/
+    .btn{/*@include transform(translate(0,100%));@include opacity(0);@include transform-css-transition('0.2s 0s ease-in-out , opacity 0.2s');*/
+      a{display: block;}
+    }
+
+    &.onShow{@include transform-css-transition('0.3s 0.1s ease-out , opacity 0.3s 0.1s');@include transform(translate(0,0));@include opacity(1); z-index:10;
+      /*.icon{@include transform-css-transition('0.3s ease-out , opacity 0.3s');@include transform(translate(0,0));@include opacity(1);}
+      .title{@include transform-css-transition('0.3s 0.1s ease-out , opacity 0.3s 0.1s');@include transform(translate(0,0));@include opacity(1);}
+      .btn{@include transform-css-transition('0.3s 0.2s ease-out , opacity 0.3s 0.2s');@include transform(translate(0,0));@include opacity(1);}*/
+    }
+
+    &.onHide{@include transform-css-transition('0.2s ease-in-out , opacity 0.2s');@include transform(translate(0,-20%));@include opacity(0);
+      /*.icon{@include transform-css-transition('0.2s 0.1s ease-in-out , opacity 0.2s 0.1s');@include transform(translate(0,-200%));@include opacity(0);}
+      .title{@include transform-css-transition('0.2s 0.05s ease-in-out , opacity 0.2s 0.05s');@include transform(translate(0,-50%));@include opacity(0);}
+      .btn{@include transform-css-transition('0.2s 0s ease-in-out , opacity 0.2s');@include transform(translate(0,-100%));@include opacity(0);}*/
+    }
+  }
+  .txt-1{
+    .title{width:percentage(503/$w); margin: 4% auto 0;}
+    .btn{width:percentage(213/$w);margin: 8% auto 0; }
+  }
+  .txt-2{
+    .icon{width:percentage(156/$w);margin: 0 auto;}
+    .title{width:percentage(535/$w);margin: 3% auto 0;}
+    .btn{width:percentage(271/$w);margin: 9% auto 0;}
+  }
+  .txt-3{
+    .icon{width:percentage(142/$w);margin: 0 auto;}
+    .title{width:percentage(386/$w);margin: 3% auto 0;}
+    .btn{width:percentage(212/$w);margin: 9% auto 0;}
+  }
+  .txt-4{
+    .icon{width:percentage(165/$w);margin: 0 auto;}
+    .title{width:percentage(518/$w);margin: 4% auto 0;}
+    .btn{width:percentage(291/$w);margin: 8% auto 0; }
+  }
+}
+
+.indi-con-list{position:absolute;width:percentage(15 / $w);right:percentage(25/$w);top:37.5%;
+  li{width:15/$w*100vw;height:15/$w*100vw;@include borderRadius('',50%);background-color:rgb(217,217,217);margin-bottom: 161%;
+    &.active{@include css-transition(background-color,0.5);background-color:rgb(89,89,89);}
+  }
+}
+
+
+.contents-holder{position: absolute;width: 100%;height: 100%;top: 50%;@include transform(translateY(-50%));}
+.slide-btn-holder{position: absolute;width:percentage(17 / $w);bottom: 5%;left:percentage(($w - 17)/2/$w);}
+
+
+.test{position:absolute;top:0;left:0;width:100vw;height:100vh;@include opacity(0.7);}
+
+header{width:100%;}
+footer{position:fixed;width:100%;bottom:0;clear:both;
+  a{width:50%;display: block;
+    &.btn-1{float:left;}
+    &.btn-2{float:right;}
+  }
+}
+
+.popup-con{position:absolute; width:100vw; z-index: 1000;top:100vh;left:0;display:none;@include css-transition-in(top,0.5);
+  &.onShow{@include css-transition-inout(top,0.5);top:0;}
+}
+
+.button {
+  &.hover .focus { opacity:0; @include css-value-transition('opacity 0.2s')}
+  &.hover-effect .focus { opacity:1; @include css-value-transition('opacity 0.2s')}
+}
+
+.hover {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
