@@ -2,11 +2,11 @@
   @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
     @if($pos==''){
       #{$prefix}border-radius : $r;
-      -webkit-mask-image: -webkit-radial-gradient(white, black);
+     /* -webkit-mask-image: -webkit-radial-gradient(white, black);*/
     }
     @else{
       #{$prefix}border-#{$pos}-radius : $r;
-      -webkit-mask-image: -webkit-radial-gradient(white, black);
+
     }
 
   }

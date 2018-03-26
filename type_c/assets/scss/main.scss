@@ -170,7 +170,7 @@ a{display: block;}
     }
   }
   .txt-1{
-    .title{width:percentage(503/$w); margin: 4% auto 0;}
+    .title{width:percentage(503/$w); margin: 11% auto 0;}
     .btn{width:percentage(213/$w);margin: 8% auto 0; }
   }
   .txt-2{
@@ -180,7 +180,7 @@ a{display: block;}
   }
   .txt-3{
     .icon{width:percentage(142/$w);margin: 0 auto;}
-    .title{width:percentage(386/$w);margin: 3% auto 0;}
+    .title{width:percentage(523/$w);margin: 3% auto 0;}
     .btn{width:percentage(212/$w);margin: 9% auto 0;}
   }
   .txt-4{
@@ -190,8 +190,9 @@ a{display: block;}
   }
 }
 
-.indi-con-list{position:absolute;width:percentage(15 / $w);right:percentage(25/$w);top:37.5%;
-  li{width:15/$w*100vw;height:15/$w*100vw;@include borderRadius('',50%);background-color:rgb(217,217,217);margin-bottom: 161%;
+.indi-con-list{position:absolute;right:percentage(24/$w);top:37.5%;
+  li{width:14/$w*100vw;height:14/$w*100vw;@include borderRadius('',14/$w*100vw);background-color:rgb(217,217,217);margin-bottom: 160%;
+
     &.active{@include css-transition(background-color,0.5);background-color:rgb(89,89,89);}
   }
 }

@@ -73,7 +73,8 @@ var step = (function($){
             $('.sub-1 .cloud-2').css({'transform':toTrans2d(0,80-80*pp1),'opacity':pp4});
             $('.sub-1 .cloud-3').css({'transform':toTrans2d(0,50-50*pp1),'opacity':pp3});
 
-            $('.shadow-1').css({'opacity':pp1});
+            // $('.shadow-1').css({'opacity':pp1});
+            $('.shadow').css({'opacity':pp1});
             $('.txt-1').css({'transform':toTrans2d(0,30-30*pp1),'opacity':pp1});
 
             $('.circle-1 .circle').css('opacity',pp1);
@@ -116,8 +117,8 @@ var step = (function($){
             $('.circle-1 .circle').css('opacity',1-p1);
             $('.circle-2 .circle').css('opacity',p1);
 
-            $('.shadow-1').css('opacity',1-p1);
-            $('.shadow-2').css('opacity',p1);
+            // $('.shadow-1').css('opacity',1-p1);
+            // $('.shadow-2').css('opacity',p1);
 
             $('.txt-1').css({'transform':toTrans2d(0,-30*p1),'opacity':1-p1});
             $('.txt-2').css({'opacity':0});
@@ -166,8 +167,8 @@ var step = (function($){
             $('.circle-3 .ktx').css({'transform': toTrans2d(0,30),'opacity' : 0});
             $('.sub-3 .s-1').css({'transform':toTrans2d(0,50),'opacity':0});
 
-            $('.shadow-2').css('opacity',1-p1);
-            $('.shadow-3').css('opacity',p1);
+            // $('.shadow-2').css('opacity',1-p1);
+            // $('.shadow-3').css('opacity',p1);
 
             $('.txt-2').css({'transform':toTrans2d(0,-30*p1),'opacity':1-p1});
             $('.txt-3').css({'opacity':0});
@@ -204,8 +205,8 @@ var step = (function($){
             $('.circle-4 .puppy').css({'transform': toTrans2d(0,100),'opacity' : 0});
             $('.sub-4 .s-1').css({'transform':toTrans2d(0,50),'opacity':0});
 
-            $('.shadow-3').css('opacity',1-p1);
-            $('.shadow-4').css('opacity',p1);
+            // $('.shadow-3').css('opacity',1-p1);
+            // $('.shadow-4').css('opacity',p1);
 
             $('.txt-3').css({'transform':toTrans2d(0,-30*p1),'opacity':1-p1});
             $('.txt-4').css({'opacity':0});
