@@ -298,7 +298,7 @@ $(document).ready(function() {
 
         if (link !== undefined) {
             console.log(link);
-            location.href = 'apply.html';
+            location.href = link;
             return;
         }
 

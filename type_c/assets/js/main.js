@@ -71,6 +71,17 @@ var main = (function($) {
 
         $('.hover').bind('touchend', function(e) {
             //e.preventDefault();
+
+            var link =$(this).attr('link');
+
+            if (link !== undefined) {
+                console.log(link);
+                location.href = link;
+                return;
+            }
+
+
+
             $(this).removeClass('hover-effect');
         });
 
