@@ -294,6 +294,13 @@ $(document).ready(function() {
         if (main.getTouchDrag()) return;
 
         var index =$(this).attr('card-index');
+        var link =$(this).attr('link');
+
+        if (link !== undefined) {
+            console.log(link);
+            location.href = 'apply.html';
+            return;
+        }
 
         if (index === undefined) return;
 
