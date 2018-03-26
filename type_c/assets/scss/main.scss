@@ -12,7 +12,7 @@ $h : 1354;
 
 body, html {width: 100%;height: 100%;overflow: hidden;}
 .wrap{width: 100%;height: 100%;}
-.container{position:fixed; width: 100%;height: percentage(1150/$h); overflow: hidden;}
+.container{position:fixed; width: 100vw;height: 1150/$h*100vh; /*percentage(1150/$h);*/ overflow: hidden;}
 .contents{position:relative;width:100%;height:100%}
 
 section{width:100%;height:100% }
@@ -23,7 +23,7 @@ a{display: block;}
   .card{width:percentage(567 / $w);top:0;margin: 0 auto;}
 }
 .main-txt{ position: relative;
-  .title{width:percentage(454 / $w);margin: -4% auto 0;}
+  .title{width:percentage(486 / $w);margin: -4% auto 0;}
   .btn{width:percentage(248 / $w);margin: 7%auto 0;}
   .benefit{width:percentage(506 / $w);margin: -1% auto 0;}
 }
@@ -222,7 +222,7 @@ footer{position:fixed;width:100%;height:110/$w*100vw;bottom:0;clear:both;
   }
 }
 
-.popup-con{position:absolute; width:100vw; z-index: 1000;top:0;left:0;display:none;@include css-transition(opacity,0.0);@include opacity(0);
+.popup-con{position:absolute; width:100vw; z-index: 1000;top:0;left:0;display:none;@include css-transition(opacity,0.0);@include opacity(0);overflow: hidden;
   &.onShow{@include css-transition(opacity,0.15);@include opacity(1);}
 }
 

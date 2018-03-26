@@ -202,6 +202,17 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 .popup .content-holder .section .top-holder .on { position: absolute; left: 0; top: 0; width: 100vw; -webkit-transition: opacity 0.3s linear; -moz-transition: opacity 0.3s linear; -ms-transition: opacity 0.3s linear; -o-transition: opacity 0.3s linear; transition: opacity 0.3s linear; opacity: 0; filter: alpha(opacity=0); }
 .popup .content-holder .section .top-holder.onFocus .on { -webkit-transition: opacity 0.3s linear; -moz-transition: opacity 0.3s linear; -ms-transition: opacity 0.3s linear; -o-transition: opacity 0.3s linear; transition: opacity 0.3s linear; opacity: 1; filter: alpha(opacity=100); }
 .popup .content-holder .section .top-holder.onFix { position: fixed; left: 0; top: 0; }
+.popup .content-holder .section-2 .top-holder { position: relative; }
+.popup .content-holder .section-2 .tab-list { position: relative; clear: both; }
+.popup .content-holder .section-2 .tab-list img { width: 100%; }
+.popup .content-holder .section-2 .tab-list li { position: relative; width: 50%; opacity: 0.3; filter: alpha(opacity=30); -webkit-transition: opacity 0.1s cubic-bezier(0,0,1,1); -webkit-transition-delay: 0s; -moz-transition: opacity 0.1s cubic-bezier(0,0,1,1); -moz-transition-delay: 0s; -ms-transition: opacity 0.1s cubic-bezier(0,0,1,1); -ms-transition-delay: 0s; -o-transition: opacity 0.1s cubic-bezier(0,0,1,1); -o-transition-delay: 0s; transition: opacity 0.1s cubic-bezier(0,0,1,1); transition-delay: 0s; }
+.popup .content-holder .section-2 .tab-list li a { display: block; }
+.popup .content-holder .section-2 .tab-list li.active { opacity: 1; filter: alpha(opacity=100); }
+.popup .content-holder .section-2 .tab-list .tab-1 { float: left; }
+.popup .content-holder .section-2 .tab-list .tab-2 { float: right; }
+.popup .content-holder .section-2 .content-list { position: relative; width: 200%; clear: both; -webkit-transition: -webkit-transform 0.3s 0s cubic-bezier(0.5, 0, 0.5, 1); -moz-transition: -moz-transform 0.3s 0s cubic-bezier(0.5, 0, 0.5, 1); -ms-transition: -ms-transform 0.3s 0s cubic-bezier(0.5, 0, 0.5, 1); -o-transition: -o-transform 0.3s 0s cubic-bezier(0.5, 0, 0.5, 1); transition: transform 0.3s 0s cubic-bezier(0.5, 0, 0.5, 1); }
+.popup .content-holder .section-2 .content-list li { position: relative; width: 50%; }
+.popup .content-holder .section-2 .content-list .content-2 { position: absolute; top: 0; right: 0; }
 .popup .content-holder .section-4 { height: 100vh; }
 
 /*# sourceMappingURL=popup.css.map */

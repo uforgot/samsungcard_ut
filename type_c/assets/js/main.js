@@ -60,7 +60,7 @@ var main = (function($) {
                 setTimeout(function(){
                     $('.popup-con').css('display','none');
                     swiper.addEvent();
-                },500);
+                },0);
             })
         })
 
