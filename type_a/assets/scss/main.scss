@@ -110,13 +110,13 @@ $tW : 720;
 
           img {width:502px; height:370px; margin-left:-251px; margin-top:-185px;
             @include opacity(0);
-            transform:scale(2.0);
+            transform:scale(1.5);
 
-            &.onShow {
-              @include opacity(1);
-              transform:scale(1);
-              @include transform-css-transition('0.5s ease-in 0s, opacity 0.5s ease-in 0s');
-            }
+            //&.onShow {
+            //  @include opacity(1);
+            //  transform:scale(1);
+            //  @include transform-css-transition('0.5s ease-in 0s, opacity 0.5s ease-in 0s');
+            //}
           }
 
         }
@@ -160,7 +160,7 @@ $tW : 720;
               }
               .card-btn-1 {width:262px;height:92px; left:176px; top:654px;}
               .card-btn-2 {width:271px;height:64px; left:60px; top:704px;}
-              .card-btn-3 {width:213px;height:64px; left:60px; top:762px;}
+              .card-btn-3 {width:213px;height:64px; left:60px; top:651px;}
               .card-btn-4 {width:212px;height:64px; left:60px; top:662px;}
               .card-btn-5 {width:291px;height:64px; left:60px; top:702px;}
 
