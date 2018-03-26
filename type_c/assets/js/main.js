@@ -41,7 +41,6 @@ var main = (function($) {
 
             setTimeout(function(){
                 $('.popup-con').addClass('onShow');
-                $('.popup .menu-wrap').addClass('onShow');
                 },100);
             $('body,html').css('overflow','initial');
 
@@ -61,7 +60,7 @@ var main = (function($) {
                 setTimeout(function(){
                     $('.popup-con').css('display','none');
                     swiper.addEvent();
-                },500);
+                },0);
             })
         })
 

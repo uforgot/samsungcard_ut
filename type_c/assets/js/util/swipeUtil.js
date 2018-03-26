@@ -82,6 +82,8 @@ var swipeUtil = (function($){
         }
 
         that.addEvent = function(){
+            isTouchStart = false;
+            isTouchMove=false;
             touchTarget.on('touchstart' ,onTouchStart);
             /*touchTarget.on('touchstart',function(e) {
 
@@ -147,10 +149,9 @@ var swipeUtil = (function($){
             });*/
         };
         that.removeEvent = function(){
-
             touchTarget.off('touchstart');
-            touchTarget.off('touchmove');
-            touchTarget.off('touchend');
+            $(window).off('touchmove');
+            $(window).off('touchend');
         }
         var movePosition = function(dx,dy){
             var x = mode === 'horizontal' ? dx : 0 ;

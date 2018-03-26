@@ -14,6 +14,18 @@ var popup = (function($) {
         $(window).on('resize',onResize);
         $(window).on('scroll',onScroll);
         onResize();
+
+        $('.tab-list li a').on('click',function(e){
+            e.preventDefault();
+
+            var index = $(this).parent().index();
+
+            $('.tab-list li').removeClass('active');
+            $('.tab-list li').eq(index).addClass('active');
+
+            var tx = -50 * index;
+            $('.content-list').css({'transform' : 'translateX('+ tx +'%)'});
+        });
     };
 
     var onResize = function(e){
@@ -23,12 +35,12 @@ var popup = (function($) {
         ratio = winW / 720;
         sectionTopArray = [
             0,
-            1648*ratio,
-            (1648+1196)*ratio,
-            (1648+1196+1275)*ratio
+            1557*ratio,
+            (1557+1113)*ratio,
+            (1557+1113+1184)*ratio
         ];
 
-        titleHeight = Math.floor(250 *ratio);
+        titleHeight = Math.floor(159 *ratio);
         menuHolderEl.css('height', titleHeight);
 
         onScroll();
@@ -75,7 +87,7 @@ var popup = (function($) {
     };
 
     var _setSection = function($index) {
-        $('html, body').animate({scrollTop: sectionTopArray[$index]}, 500);
+        $('html, body').animate({scrollTop: sectionTopArray[$index]}, 10);
     };
 
     /*================================================================================================================*/

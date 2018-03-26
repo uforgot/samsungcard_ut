@@ -9,14 +9,13 @@ $tW : 720;
 .popup {background-color: #fff;
     .menu-wrap {
         position:fixed;
-        top:-100%; left:0;
+        top:0; left:0;
         z-index:1000;
         width:100vw;
         img {width:100%;}
 
         overflow:hidden;
 
-        @include css-transition-in(top,0.5);
 
         .title-holder {
             position:absolute;
@@ -32,11 +31,6 @@ $tW : 720;
             a{
                 display: block;
             }
-        }
-
-        &.onShow {
-            @include css-transition-inout(top,0.5);
-            top:0;
         }
 
     }
@@ -61,6 +55,24 @@ $tW : 720;
                 &.onFix {
                     position:fixed; left:0; top:0;
                 }
+            }
+        }
+
+        .section-2 {
+            .top-holder { position: relative; height:auto;}
+            .tab-list {position:relative; clear: both;
+                img {width:100%;}
+                li {position:relative; width:50%;@include opacity(0.3);@include css-transition(opacity,0.1);
+                    a { display : block; }
+                    &.active {@include opacity(1);}
+                }
+                .tab-1 {float:left;}
+                .tab-2 {float:right;}
+            }
+            .content-list {position:relative; width : 200%; clear:both; @include transform-transition-inout(0.3);
+                li{position:relative; width:50%;}
+                .content-1 {}
+                .content-2 {position:absolute;top:0;right:0;}
             }
         }
 
