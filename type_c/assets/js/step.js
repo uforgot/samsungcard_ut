@@ -121,6 +121,8 @@ var step = (function($){
 
             $('.txt-1').css({'transform':toTrans2d(0,-30*p1),'opacity':1-p1});
             $('.txt-2').css({'opacity':0});
+
+            $('.circle-2 .coke').css({'transform': toTrans2d(0,120)});
         }else{
             var pp1 = setPer(per,0.5,1);
             var pp2 = setPer(per,0.5,0.9);
@@ -129,10 +131,15 @@ var step = (function($){
 
             $('.circle-2 .glass').css({'transform': toTrans2d(-80+80*pp4,0) + toRotate2d(50-50*pp4)});
             $('.circle-2 .popcorn').css({'transform': toTrans2d(100-100*pp3,0) + toRotate2d(60-60*pp4)});
-            $('.circle-2 .coke').css({'transform': toTrans2d(0,100-100*pp2)});
+            $('.circle-2 .coke').css({'transform': toTrans2d(0,120-120*pp2)});
 
             $('.sub-2 .s-1').css({'transform':toTrans2d(0,50-50*pp2),'opacity':pp1});
             $('.sub-2 .s-2').css({'transform':toTrans2d(0,30-30*pp1),'opacity':pp4});
+
+            $('.circle-1 .glass').css({'transform': toTrans2d(100,0) + toRotate2d(100)});
+            $('.circle-1 .camera').css({'transform': toTrans2d(50,50) + toRotate2d(60)});
+            $('.circle-1 .bag').css({'transform': toTrans2d(-100,0) + toRotate2d(-80)});
+            $('.circle-1 .flight').css({'transform': toTrans2d(0,-100)});
 
             $('.txt-1').css({'opacity':0});
             $('.txt-2').css({'transform':toTrans2d(0,30-30*pp1),'opacity':pp1});
@@ -173,6 +180,10 @@ var step = (function($){
 
             $('.txt-2').css({'opacity':0});
             $('.txt-3').css({'transform':toTrans2d(0,30-30*pp1),'opacity':pp1});
+
+            $('.circle-2 .glass').css({'transform': toTrans2d(-80,0) + toRotate2d(-50)});
+            $('.circle-2 .popcorn').css({'transform': toTrans2d(100,0) + toRotate2d(60)});
+            $('.circle-2 .coke').css({'transform': toTrans2d(0,-140)});
         }
 
     }
