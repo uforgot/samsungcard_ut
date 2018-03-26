@@ -208,8 +208,8 @@ var main = (function($) {
 
         setTimeout(show1, 600);
         setTimeout(show2, 900);
-        setTimeout(show3, 1200);
-        setTimeout(show4, 1200);
+        setTimeout(show3, 800);
+        setTimeout(show4, 1000);
     };
 
     var show1 = function() {
