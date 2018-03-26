@@ -5,9 +5,9 @@ var main = (function($) {
     var CARD_MIN_SCALE = 0.95;
     var CARD_MARGIN = 635;
 
-    var IMAGE_MAX_SCALE = 1.1;
+    var IMAGE_MAX_SCALE = 0.9;
     var IMAGE_MOVE_SCALE = 0.8;
-    var IMAGE_MIN_SCALE = 0.9;
+    var IMAGE_MIN_SCALE = 0.8;
 
 
     var winW,winH,ratio;
