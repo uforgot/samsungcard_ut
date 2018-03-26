@@ -12,7 +12,7 @@ $h : 1354;
 
 body, html {width: 100%;height: 100%;overflow: hidden;}
 .wrap{width: 100%;height: 100%;}
-.container{position:relative; width: 100%;height: percentage(1150/$h); overflow: hidden;}
+.container{position:fixed; width: 100%;height: percentage(1150/$h); overflow: hidden;}
 .contents{position:relative;width:100%;height:100%}
 
 section{width:100%;height:100% }
@@ -32,8 +32,8 @@ a{display: block;}
     &.onShow{@include css-transition(opacity,0.3);@include opacity(1);}
   }
 }
-.circle-con-list{ position: absolute;width: 449/$w*100vw;height:449/$w*100vw; top: 10%;overflow: hidden;
-  @include left-center(449);@include borderRadius('',50%);@include  opacity(0);
+.circle-con-list{ position: absolute;width: 448/$w*100vw;height:448/$w*100vw; top: 10%;overflow: hidden;
+  @include left-center(448);@include borderRadius('',50%);@include  opacity(0);
   li{position:absolute;width:100%;top:0;left:0;
     .circle{width:100%;@include opacity(0);
       &.onShow{@include opacity(1);}
@@ -222,8 +222,8 @@ footer{position:fixed;width:100%;height:110/$w*100vw;bottom:0;clear:both;
   }
 }
 
-.popup-con{position:absolute; width:100vw; z-index: 1000;top:100vh;left:0;display:none;@include css-transition-in(top,0.5);
-  &.onShow{@include css-transition-inout(top,0.5);top:0;}
+.popup-con{position:absolute; width:100vw; z-index: 1000;top:0;left:0;display:none;@include css-transition(opacity,0.0);@include opacity(0);
+  &.onShow{@include css-transition(opacity,0.15);@include opacity(1);}
 }
 
 .button {position:relative;z-index:100;

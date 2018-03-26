@@ -75,7 +75,7 @@ var popup = (function($) {
     };
 
     var _setSection = function($index) {
-        $('html, body').animate({scrollTop: sectionTopArray[$index]}, 500);
+        $('html, body').animate({scrollTop: sectionTopArray[$index]}, 10);
     };
 
     /*================================================================================================================*/

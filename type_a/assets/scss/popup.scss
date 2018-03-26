@@ -9,14 +9,13 @@ $tW : 720;
 .popup {background-color: #fff;
     .menu-wrap {
         position:fixed;
-        top:-100%; left:0;
+        top:0; left:0;
         z-index:1000;
         width:100vw;
         img {width:100%;}
 
         overflow:hidden;
 
-        @include css-transition-in(top,0.5);
 
         .title-holder {
             position:absolute;
@@ -32,11 +31,6 @@ $tW : 720;
             a{
                 display: block;
             }
-        }
-
-        &.onShow {
-            @include css-transition-inout(top,0.5);
-            top:0;
         }
 
     }

@@ -190,12 +190,11 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 /* line */
 /* font setting */
 .popup { background-color: #fff; }
-.popup .menu-wrap { position: fixed; top: -100%; left: 0; z-index: 1000; width: 100vw; overflow: hidden; -webkit-transition: top 0.5s cubic-bezier(0.5, 0, 1, 0.5); -webkit-transition-delay: 0s; -moz-transition: top 0.5s cubic-bezier(0.5, 0, 1, 0.5); -moz-transition-delay: 0s; -ms-transition: top 0.5s cubic-bezier(0.5, 0, 1, 0.5); -ms-transition-delay: 0s; -o-transition: top 0.5s cubic-bezier(0.5, 0, 1, 0.5); -o-transition-delay: 0s; transition: top 0.5s cubic-bezier(0.5, 0, 1, 0.5); transition-delay: 0s; }
+.popup .menu-wrap { position: fixed; top: 0; left: 0; z-index: 1000; width: 100vw; overflow: hidden; }
 .popup .menu-wrap img { width: 100%; }
 .popup .menu-wrap .title-holder { position: absolute; width: 100%; left: 0; top: 0; }
 .popup .menu-wrap .close-holder { position: absolute; width: 18.6111111111%; right: 0; }
 .popup .menu-wrap .close-holder a { display: block; }
-.popup .menu-wrap.onShow { -webkit-transition: top 0.5s cubic-bezier(0.5, 0, 0.5, 1); -webkit-transition-delay: 0s; -moz-transition: top 0.5s cubic-bezier(0.5, 0, 0.5, 1); -moz-transition-delay: 0s; -ms-transition: top 0.5s cubic-bezier(0.5, 0, 0.5, 1); -ms-transition-delay: 0s; -o-transition: top 0.5s cubic-bezier(0.5, 0, 0.5, 1); -o-transition-delay: 0s; transition: top 0.5s cubic-bezier(0.5, 0, 0.5, 1); transition-delay: 0s; top: 0; }
 .popup .content-holder { width: 100vw; }
 .popup .content-holder img { width: 100vw; }
 .popup .content-holder .section { position: relative; }
