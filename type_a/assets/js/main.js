@@ -2,8 +2,8 @@ var main = (function($) {
     var CARD_MAX = 5;
     var CARD_MAX_SCALE = 1;
     var CARD_MOVE_SCALE = 1;
-    var CARD_MIN_SCALE = 0.95;
-    var CARD_MARGIN = 635;
+    var CARD_MIN_SCALE = 0.92;
+    var CARD_MARGIN = 620;
 
     var IMAGE_MAX_SCALE = 0.9;
     var IMAGE_MOVE_SCALE = 0.8;
