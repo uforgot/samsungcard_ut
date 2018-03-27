@@ -65,7 +65,7 @@ var main = (function($) {
         })
 
         $('.hover').bind('touchstart', function(e) {
-            //e.preventDefault();
+            e.preventDefault();
             $(this).addClass('hover-effect');
         });
 

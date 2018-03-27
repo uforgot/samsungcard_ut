@@ -18,14 +18,14 @@ body, html {width: 100%;height: 100%;overflow: hidden;}
 section{width:100%;height:100% }
 a{display: block;}
 /*.motion{@include transform-css-transition('0.3s , opacity 0.3s');}*/
-.event-txt{position:relative; width:percentage(383 / $w); margin: 0 auto; padding-top: 12%;z-index : 10;}
+.event-txt{position:relative; width:percentage(481 / $w); margin: 0 auto; padding-top: 12%;z-index : 10;}
 .card-con{position:relative;margin-top: -2%;
   .card{width:percentage(567 / $w);top:0;margin: 0 auto;}
 }
 .main-txt{ position: relative;
   .title{width:percentage(486 / $w);margin: -4% auto 0;}
-  .btn{width:percentage(248 / $w);margin: 7%auto 0;}
-  .benefit{width:percentage(506 / $w);margin: -1% auto 0;}
+  .btn{width:percentage(288 / $w);margin: 4%auto 0;}
+  .benefit{width:percentage(506 / $w);margin: -4% auto 0;}
 }
 .circle-shadow{position:absolute;width:100%;top:-6%;
   li{position: absolute; top:0;left:0;@include css-transition(opacity,0.3);@include opacity(0);width:percentage(720/$w);@include left-center(720);
@@ -214,7 +214,11 @@ a{display: block;}
 
 .test{position:absolute;top:0;left:0;width:100vw;height:100vh;@include opacity(0.7);}
 
-header{width:100%;}
+header{position:relative;width:100%;
+  a{position:absolute;top:0;display:inline-block;}
+  .self-link{width:80%;height:100%;}
+  .main-link{width:20%;height:100%;right:0;}
+}
 footer{position:fixed;width:100%;height:110/$w*100vw;bottom:0;clear:both;
   a{width:50%;display: block;
     &.btn-1{float:left;}

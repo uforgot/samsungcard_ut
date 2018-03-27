@@ -216,7 +216,11 @@ $tW : 720;
   img {width:100vw;}
 }
 
-header{width:100%;position:fixed;z-index:900;}
+header{width:100%;position:fixed;z-index:900;
+  a{position:absolute;top:0;display:inline-block;}
+  .self-link{width:80%;height:100%;}
+  .main-link{width:20%;height:100%;right:0;}
+}
 
 footer{width:100%;position:fixed;bottom:0;z-index:900;
   .button {position:relative; width:50%; float:left;
