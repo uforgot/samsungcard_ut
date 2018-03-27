@@ -12,7 +12,7 @@ $h : 1354;
 
 body, html {width: 100%;height: 100%;overflow: hidden;}
 .wrap{width: 100%;height: 100%;}
-.container{position:fixed;width: 100%;height: percentage(1150/$h); overflow: hidden;}
+.container{position:fixed;width: 100%;height:100%; overflow: hidden;}
 .contents{width:100%;height:100%}
 .sub{display:none;}
 
@@ -110,7 +110,7 @@ $tW : 720;
 
           img {width:502px; height:370px; margin-left:-251px; margin-top:-185px;
             @include opacity(0);
-            transform:scale(1.5);
+            transform:scale(1.2);
 
             //&.onShow {
             //  @include opacity(1);
@@ -133,7 +133,7 @@ $tW : 720;
           &.onShow {
             @include  opacity(1);
             margin-top:0;
-            @include transform-css-transition('0.5s ease-out 0s, opacity 0.5s ease-out 0s, margin-top 0.5s ease-out 0s');
+            @include transform-css-transition('0.7s ease-out 0s, opacity 0.7s ease-out 0s, margin-top 0.7s ease-out 0s');
           }
 
           .pod {position:absolute;left:0;top:0;
@@ -158,7 +158,7 @@ $tW : 720;
                 &.hover .focus { opacity:0; @include css-value-transition('opacity 0.2s')}
                 &.hover-effect .focus { opacity:1; @include css-value-transition('opacity 0.2s')}
               }
-              .card-btn-1 {width:262px;height:92px; left:176px; top:654px;}
+              .card-btn-1 {width:301px;height:92px; left:157px; top:652px; }
               .card-btn-2 {width:271px;height:64px; left:60px; top:704px;}
               .card-btn-3 {width:213px;height:64px; left:60px; top:651px;}
               .card-btn-4 {width:212px;height:64px; left:60px; top:662px;}

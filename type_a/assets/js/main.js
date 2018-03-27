@@ -2,8 +2,8 @@ var main = (function($) {
     var CARD_MAX = 5;
     var CARD_MAX_SCALE = 1;
     var CARD_MOVE_SCALE = 1;
-    var CARD_MIN_SCALE = 0.95;
-    var CARD_MARGIN = 635;
+    var CARD_MIN_SCALE = 0.92;
+    var CARD_MARGIN = 620;
 
     var IMAGE_MAX_SCALE = 0.9;
     var IMAGE_MOVE_SCALE = 0.8;
@@ -246,14 +246,14 @@ var main = (function($) {
         $('.popup-con').load('popup.html .popup',subLoadComplete);
 
         setTimeout(show1, 500);
-        setTimeout(show2, 1000);
-        setTimeout(show3, 1400);
+        setTimeout(show2, 900);
+        setTimeout(show3, 1200);
     };
 
     var show1 = function() {
         // $('.card-float img').addClass('onShow');
 
-        $('.card-float img').animate({ 'opacity': 1, 'transform':'scale(1)' }, 500, 'easeOutBounce');
+        $('.card-float img').animate({ 'opacity': 1, 'transform':'scale(1)' }, 900, 'easeInOutElastic');
     };
 
     var show2 = function() {
